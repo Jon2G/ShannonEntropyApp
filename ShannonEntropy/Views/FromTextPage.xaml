@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
+             xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
+             xmlns:converters="clr-namespace:Kit.Forms.Converters;assembly=Kit.Forms"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="ShannonEntropy.Views.FromTextPage" BackgroundColor="#F1F1FE"
+             Title="{x:Static resource:AppResources.FromText}" x:DataType="viewModels:FromTextPageViewModel">
+    <ContentPage.BindingContext>
+        <viewModels:FromTextPageViewModel x:Name="Model"/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resource:AppResources.OpenFile}" Command="{Binding PickFileCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Clean}" Order="Secondary" Command="{Binding CleanCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="5" Padding="3" Spacing="5">
+            <Grid RowDefinitions="*,40">
+                <Editor VerticalOptions="FillAndExpand" HeightRequest="500" Grid.RowSpan="2"
+                           Text="{Binding Text}" MaxLength="{Binding MaxLenght}" BackgroundColor="White"
+                           AutoSize="TextChanges">
+
+                </Editor>
+                <Label Margin="10,0" Grid.Row="1" 
+                       Text="{Binding Text.Length,StringFormat='{0}/500'}" 
+                       VerticalOptions="Start" HorizontalOptions="End">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <DataTrigger Value="True" TargetType="Label">
+                                    <DataTrigger.Binding>
+                                        <Binding Path="Text.Length" >
+                                            <Binding.Converter>
+                                                <converters:IsEqualOrGreaterThanConverter/>
+                                            </Binding.Converter>
+                                            <Binding.ConverterParameter>
+                                                <x:Double>500</x:Double>
+                                            </Binding.ConverterParameter>
+                                        </Binding>
+                                    </DataTrigger.Binding>
+                                    <Setter Property="TextColor" Value="Firebrick"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Grid>
+            <Button Text="{x:Static resource:AppResources.CalculateEntropy}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Kit.Forms.Controls;assembly=Kit.Forms"
+             xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
+             xmlns:fonts="clr-namespace:ShannonEntropy.Fonts;assembly=ShannonEntropy"
+             xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
+             x:Class="ShannonEntropy.Views.MainPage" 
+             Title="{x:Static resource:AppResources.MainTitle}" Shell.TabBarBackgroundColor="#00415B"
+             x:DataType="viewModels:MainPageViewModel">
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel x:Name="Model"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+            <controls:ArrowButton Title="{x:Static resource:AppResources.FromText}"
+                                          SubTitle="{x:Static resource:AppResources.FromTextSubtitle}"
+                                          IconHeightRequest="30"
+                                          Command="{Binding FromTextCommand,Source={x:Reference Model}}">
+                <controls:ArrowButton.Icon>
+                    <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}"
+                                     Glyph="{x:Static fonts:FontelloIcons.Letter}" 
+                                     Color="Black" Size="30"/>
+                </controls:ArrowButton.Icon>
+            </controls:ArrowButton>
+
+            <controls:ArrowButton Title="{x:Static resource:AppResources.FromPhoto}" 
+                                  SubTitle="{x:Static resource:AppResources.FromPhotoSubtitle}"
+                                  IconHeightRequest="30"
+                                  Command="{Binding FromPhotoCommand}">
+                <controls:ArrowButton.Icon>
+                    <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}"
+                                     Glyph="{x:Static fonts:FontelloIcons.Photo}" 
+                                     Color="Black" Size="30"/>
+                </controls:ArrowButton.Icon>
+            </controls:ArrowButton>
+
+            <controls:ArrowButton Title="{x:Static resource:AppResources.FrecuencyEntropy}"
+                                  SubTitle="{x:Static  resource:AppResources.FrecuencyEntropySubtitle}"
+                                  IconHeightRequest="30"
+                                  Command="{Binding FrecuenyEntropyCommand}">
+                <controls:ArrowButton.Icon>
+                    <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}"
+                                     Glyph="{x:Static fonts:FontelloIcons.SpeedMeter}" 
+                                     Color="Black" Size="30"/>
+                </controls:ArrowButton.Icon>
+            </controls:ArrowButton>
+
+            <controls:ArrowButton Title="{x:Static resource:AppResources.Theory}" 
+                                  IconHeightRequest="30"
+                                  Command="{Binding TheoryCommand}">
+                <controls:ArrowButton.Icon>
+                    <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}"
+                                     Glyph="{x:Static fonts:FontelloIcons.Feather}" 
+                                     Color="Black" Size="30"/>
+                </controls:ArrowButton.Icon>
+            </controls:ArrowButton>
+
+            <controls:ArrowButton Title="{x:Static resource:AppResources.ChangeLanguage}" 
+                                  IconHeightRequest="30"
+                                  Command="{Binding ChangeLanguajeCommand}">
+                <controls:ArrowButton.Icon>
+                    <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}"
+                                     Glyph="{x:Static fonts:FontelloIcons.Globe}" 
+                                     Color="Black" Size="30"/>
+                </controls:ArrowButton.Icon>
+            </controls:ArrowButton>
+
+            <controls:ArrowButton Title="{x:Static resource:AppResources.AboutUs}"
+                                  IconHeightRequest="30"
+                                  Command="{Binding AboutCommand}">
+                <controls:ArrowButton.Icon>
+                    <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}"
+                                     Glyph="{x:Static fonts:FontelloIcons.Hearth}" 
+                                     Color="Black" Size="30"/>
+                </controls:ArrowButton.Icon>
+            </controls:ArrowButton>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
