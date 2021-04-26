@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
+             xmlns:models="clr-namespace:ShannonEntropy.Models;assembly=ShannonEntropy"
+             xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             x:Class="ShannonEntropy.Views.TextResultsPage" Title="Results">
+    <ContentPage.BindingContext>
+        <viewModels:TextResultsPageViewModel x:Name="Model"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Spacing="0" BackgroundColor="{StaticResource PrimaryDark}">
+            <Label Text="{Binding TotalEntropy,StringFormat='Entropia total: {0:N2}'}" Margin="5,0" FontSize="20" TextColor="White" FontAttributes="Bold"/>
+            <Grid Padding="10"  ColumnDefinitions="*,*,*">
+                <Label Grid.Column="0" Text="Character" HorizontalTextAlignment="Center" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="1" Text="Count" HorizontalTextAlignment="End" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="2" Text="Frecuency" HorizontalTextAlignment="End" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+            </Grid>
+            <CollectionView BackgroundColor="WhiteSmoke" ItemsSource="{Binding Symbols.Values}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Symbol" >
+                        <ContentView>
+                            <Grid ColumnDefinitions="*,*,*">
+                                <Label Grid.Column="0" Text="{Binding Character}"
+                                       HorizontalTextAlignment="Center" TextColor="Black"
+                                       FontSize="18"/>
+                                <Label Grid.Column="1" Text="{Binding Count,StringFormat='{0:D1}'}"
+                                       HorizontalTextAlignment="End" TextColor="Black"
+                                       FontSize="18"/>
+                                <Label Grid.Column="2" Text="{Binding Frecuency,StringFormat='{0:P2}'}"
+                                       HorizontalTextAlignment="End" TextColor="Black"
+                                       FontSize="18"/>
+                            </Grid>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

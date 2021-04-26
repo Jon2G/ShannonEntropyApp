@@ -127,7 +127,7 @@
     <value>Por favor permita el acceso</value>
   </data>
   <data name="BigFile" xml:space="preserve">
-    <value>El archivo seleccionado sobrepasa los 2 Mbs abrir archivos muy grandes podría causar la interrupción de la aplicación por restricción del sistema operativo o incluso bloquear el dispositivo
+    <value>El archivo seleccionado sobrepasa los 20 Mbs abrir archivos muy grandes podría causar la interrupción de la aplicación por restricción del sistema operativo o incluso bloquear el dispositivo
 ¿Continuar?</value>
   </data>
   <data name="CalculateEntropy" xml:space="preserve">

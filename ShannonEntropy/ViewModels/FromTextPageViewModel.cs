@@ -21,8 +21,8 @@ namespace ShannonEntropy.ViewModels
 {
     public class FromTextPageViewModel : ModelBase
     {
-        private string _Text;
-        public string Text
+        private StringBuilder _Text;
+        public StringBuilder Text
         {
             get => _Text;
             set
@@ -44,14 +44,41 @@ namespace ShannonEntropy.ViewModels
             }
         }
 
+        private int _Lenght;
+
+        public int Lenght
+        {
+            get => _Lenght;
+            set
+            {
+                _Lenght = value;
+                Raise(() => Lenght);
+            }
+        }
+
         public ICommand PickFileCommand { get; set; }
         public ICommand CleanCommand { get; set; }
+        public Command CalculateCommand { get; set; }
         public FromTextPageViewModel()
         {
-            this.Text = string.Empty;
+            this.Text = new StringBuilder(500);
             this.MaxLenght = 500;
             this.PickFileCommand = new Command(PickFile);
             this.CleanCommand = new Command(Clean);
+            this.CalculateCommand = new Command(Calculate, canExecute: () => Lenght > 0);
+        }
+
+        private async void Calculate()
+        {
+            var page = new TextResultsPage();
+            await Shell.Current.Navigation.PushAsync(page);
+            page.Calculate(this.Text);
+        }
+        private async void Calculate(FileInfo file)
+        {
+            var page = new TextResultsPage();
+            await Shell.Current.Navigation.PushAsync(page);
+            page.Calculate(file);
         }
 
         private async void Clean()
@@ -60,7 +87,7 @@ namespace ShannonEntropy.ViewModels
                 ConfirmAsync(AppResources.CleanTextAsk,
                     AppResources.Alert, AppResources.Yes, AppResources.Cancel))
             {
-                this.Text = String.Empty;
+                this.Text = new StringBuilder(500);
                 this.MaxLenght = 500;
             }
         }
@@ -96,7 +123,7 @@ namespace ShannonEntropy.ViewModels
         private async Task ReadFile(FileResult pfile)
         {
             await Task.Yield();
-            this.Text = string.Empty;
+            this.Text.Clear();
             if (pfile.ContentType.Contains("image"))
             {
                 if (await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync(
@@ -119,7 +146,7 @@ namespace ShannonEntropy.ViewModels
             }
             FileInfo file = new FileInfo(pfile.FullPath);
             var mb = file.Length.ToSize(BytesConverter.SizeUnits.MB);
-            if (mb > 1)
+            if (mb > 20)
             {
                 if (!await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync(
                     AppResources.BigFile, AppResources.Alert,
@@ -128,29 +155,10 @@ namespace ShannonEntropy.ViewModels
                     return;
                 }
             }
-            string text = await ReadAllTextAsync(pfile.FullPath);
-            if (text.Length > MaxLenght)
-            {
-                MaxLenght = text.Length;
-            }
-            this.Text = text;
+            Calculate(file);
         }
 
-        public static async Task<string> ReadAllTextAsync(string filePath)
-        {
-            var stringBuilder = new StringBuilder();
-            using (var fileStream = File.OpenRead(filePath))
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF7))
-            {
-                string line = await streamReader.ReadLineAsync();
-                while (line != null)
-                {
-                    stringBuilder.AppendLine(line);
-                    line = await streamReader.ReadLineAsync();
-                }
-                return stringBuilder.ToString();
-            }
-        }
+
 
         public async void Load(FileResult pfile)
         {
@@ -158,6 +166,13 @@ namespace ShannonEntropy.ViewModels
             {
                 await ReadFile(pfile);
             }
+        }
+
+        public void TextChanged(TextChangedEventArgs e)
+        {
+            this.Text.Clear().Append(e.NewTextValue);
+            this.Lenght = this.Text.Length;
+            this.CalculateCommand?.ChangeCanExecute();
         }
     }
 }

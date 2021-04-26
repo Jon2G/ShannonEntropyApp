@@ -20,5 +20,10 @@ namespace ShannonEntropy.Views
         {
             InitializeComponent();
         }
+
+        private void InputView_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.Model.TextChanged(e);
+        }
     }
 }

@@ -18,12 +18,11 @@
         <StackLayout Margin="5" Padding="3" Spacing="5">
             <Grid RowDefinitions="*,40">
                 <Editor VerticalOptions="FillAndExpand" HeightRequest="500" Grid.RowSpan="2"
-                           Text="{Binding Text}" MaxLength="{Binding MaxLenght}" BackgroundColor="White"
-                           AutoSize="TextChanges">
-
-                </Editor>
+                           Text="{Binding Text}" 
+                           MaxLength="{Binding MaxLenght}" BackgroundColor="White"
+                           AutoSize="TextChanges" TextChanged="InputView_OnTextChanged"/>
                 <Label Margin="10,0" Grid.Row="1" 
-                       Text="{Binding Text.Length,StringFormat='{0}/500'}" 
+                       Text="{Binding Lenght,StringFormat='{0}/500'}" 
                        VerticalOptions="Start" HorizontalOptions="End">
                     <Label.Style>
                         <Style TargetType="Label">
@@ -46,7 +45,7 @@
                     </Label.Style>
                 </Label>
             </Grid>
-            <Button Text="{x:Static resource:AppResources.CalculateEntropy}"/>
+            <Button Text="{x:Static resource:AppResources.CalculateEntropy}" Command="{Binding CalculateCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

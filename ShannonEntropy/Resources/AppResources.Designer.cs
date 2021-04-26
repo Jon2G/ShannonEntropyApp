@@ -88,7 +88,7 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El archivo seleccionado sobrepasa los 2 Mbs abrir archivos muy grandes podría causar la interrupción de la aplicación por restricción del sistema operativo o incluso bloquear el dispositivo
+        ///   Looks up a localized string similar to El archivo seleccionado sobrepasa los 20 Mbs abrir archivos muy grandes podría causar la interrupción de la aplicación por restricción del sistema operativo o incluso bloquear el dispositivo
         ///¿Continuar?.
         /// </summary>
         internal static string BigFile {

@@ -127,7 +127,7 @@
     <value>Please grant access</value>
   </data>
   <data name="BigFile" xml:space="preserve">
-    <value>The selected file exceeds 2 Mbs opening very large files could cause the application to be interrupted due to operating system restrictions or even crash the device
+    <value>The selected file exceeds 20 Mbs opening very large files could cause the application to be interrupted due to operating system restrictions or even crash the device
 Continue?</value>
   </data>
   <data name="CalculateEntropy" xml:space="preserve">

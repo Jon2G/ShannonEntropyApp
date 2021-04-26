@@ -1,5 +1,4 @@
-﻿using ShannonEntropy.Services;
-using ShannonEntropy.Views;
+﻿using ShannonEntropy.Views;
 using System;
 using System.Globalization;
 using System.Threading;
@@ -24,8 +23,6 @@ namespace ShannonEntropy
                 Thread.CurrentThread.CurrentUICulture = MexCultureInfo;
                 AppResources.Culture = MexCultureInfo;
             }
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
