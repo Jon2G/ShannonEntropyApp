@@ -159,4 +159,12 @@
       <Name>ShannonEntropy</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="Native References/libEntropyLibrary.iOS.a">
+      <Kind>Static</Kind>
+      <IsCxx>True</IsCxx>
+      <ForceLoad>True</ForceLoad>
+      <SmartLink>True</SmartLink>
+    </NativeReference>
+  </ItemGroup>
 </Project>

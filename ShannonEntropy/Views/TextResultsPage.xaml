@@ -16,7 +16,7 @@
                 <Label Grid.Column="1" Text="Count" HorizontalTextAlignment="End" FontSize="18" TextColor="White" FontAttributes="Bold"/>
                 <Label Grid.Column="2" Text="Frecuency" HorizontalTextAlignment="End" FontSize="18" TextColor="White" FontAttributes="Bold"/>
             </Grid>
-            <CollectionView BackgroundColor="WhiteSmoke" ItemsSource="{Binding Symbols.Values}">
+            <CollectionView BackgroundColor="WhiteSmoke" ItemsSource="{Binding Symbols}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Symbol" >
                         <ContentView>
