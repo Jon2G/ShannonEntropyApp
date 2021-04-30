@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 using ShannonEntropy.Models;
 
@@ -36,7 +37,18 @@ namespace ShannonEntropy.EntropyLibrary
             }
             return symbols;
         }
-
+        public static float Calculate(params float[] Probabilities)
+        {
+            IntPtr array = Marshal.AllocHGlobal(sizeof(float) * Probabilities.Length);
+            float[] events = new float[Probabilities.Length];
+            Marshal.Copy(events, 0, array, Probabilities.Length);
+            float ent = (float)Math.Round((EntropyLibraryWrapper.Calculate(array, Probabilities.Length) * 100));
+            if (ent > 100)
+            {
+                ent = 100;
+            }
+            return ent;
+        }
 
 
 

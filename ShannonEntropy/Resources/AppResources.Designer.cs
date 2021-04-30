@@ -233,6 +233,24 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ha denegado el acceso a su camera, por favor permita el acceso desde ajustes de su dispositivo.
+        /// </summary>
+        internal static string HasDeniedCamera {
+            get {
+                return ResourceManager.GetString("HasDeniedCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ha denegado el acceso a su almacenamiento por favor permita el acceso desde ajustes de su dispositivo.
+        /// </summary>
+        internal static string HasDeniedStorage {
+            get {
+                return ResourceManager.GetString("HasDeniedStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El archivo seleccionado es un archivo de texto ¿Calcular la entropia del texto en su lugar?.
         /// </summary>
         internal static string ItsAFileNotAnImage {
@@ -284,6 +302,15 @@ namespace ShannonEntropy.Resources {
         internal static string PleaseWait {
             get {
                 return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tomar fotografía.
+        /// </summary>
+        internal static string TakePhoto {
+            get {
+                return ResourceManager.GetString("TakePhoto", resourceCulture);
             }
         }
         

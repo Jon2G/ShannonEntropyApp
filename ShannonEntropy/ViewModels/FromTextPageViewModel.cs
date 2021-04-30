@@ -9,8 +9,6 @@ using Kit;
 using Kit.Extensions;
 using Kit.Forms.Extensions;
 using Kit.Model;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 using ShannonEntropy.Resources;
 using ShannonEntropy.Views;
 using Xamarin.Essentials;
@@ -97,9 +95,10 @@ namespace ShannonEntropy.ViewModels
             await Task.Yield();
             try
             {
-                if (!await Permisos.TenemosPermiso(Permission.Storage))
+
+                if (await Permisos.EnsurePermission<Permissions.StorageRead>(AppResources.AllowAccess) != PermissionStatus.Granted)
                 {
-                    await Permisos.PedirPermiso(Permission.Storage, AppResources.AllowAccess);
+                    Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedStorage, AppResources.Alert, "Ok");
                 }
                 var pfile = await FilePicker.PickAsync();
                 if (pfile is not null)

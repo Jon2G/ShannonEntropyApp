@@ -12,17 +12,18 @@
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{x:Static resource:AppResources.OpenFile}" Command="{Binding PickFileCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.TakePhoto}" Command="{Binding TakePhotoCommand}" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Margin="5" Padding="3" Spacing="5">
-            <forms:CachedImage 
+            <forms:CachedImage DownsampleToViewSize="True"  x:Name="Image"
                 VerticalOptions="FillAndExpand"
                 Source="{Binding Image}">
-                <forms:CachedImage.Transformations>
+                <!--<forms:CachedImage.Transformations>
                     <transformations:GrayscaleTransformation/>
-                </forms:CachedImage.Transformations>
+                </forms:CachedImage.Transformations>-->
             </forms:CachedImage>
-            <Button Text="{x:Static resource:AppResources.CalculateEntropy}"/>
+            <Button Text="{x:Static resource:AppResources.CalculateEntropy}" Command="{Binding CalculateCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

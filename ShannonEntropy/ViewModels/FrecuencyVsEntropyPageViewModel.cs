@@ -79,12 +79,8 @@ namespace ShannonEntropy.ViewModels
             }
             else
             {
-                IntPtr array = Marshal.AllocHGlobal(sizeof(float) * 2);
-                float[] events = new float[2] { (float)Event1 / 100f, (float)Event2 / 100f };
-                Marshal.Copy(events, 0, array, 2);
                 this.EquiProbable = false;
-                double ent =
-                    Math.Round((EntropyLibraryWrapper.Calculate(array, 2) * 100));
+                double ent = EntropyLibrary.EntropyLibrary.Calculate((float)Event1 / 100f, (float)Event2 / 100f) * 100;
                 if (ent > 100)
                 {
                     ent = 100;

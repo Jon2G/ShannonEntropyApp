@@ -9,13 +9,12 @@ using Kit;
 using Kit.Extensions;
 using Kit.Forms.Extensions;
 using Kit.Model;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 using ShannonEntropy.Resources;
 using ShannonEntropy.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Command = Xamarin.Forms.Command;
+using PermissionStatus = Xamarin.Essentials.PermissionStatus;
 
 namespace ShannonEntropy.ViewModels
 {
@@ -33,9 +32,28 @@ namespace ShannonEntropy.ViewModels
         }
 
         public ICommand PickFileCommand { get; set; }
+        public ICommand CalculateCommand { get; set; }
+        public ICommand TakePhotoCommand { get; set; }
         public FromPhotoPageViewModel()
         {
             this.PickFileCommand = new Command(PickFile);
+            this.CalculateCommand = new Command(Calculate);
+            this.TakePhotoCommand = new Command(TakePhoto);
+        }
+
+        private async void TakePhoto()
+        {
+            if (await Permisos.EnsurePermission<Permissions.Camera>(AppResources.AllowAccess) != PermissionStatus.Granted)
+            {
+                Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera, AppResources.Alert, "Ok");
+            }
+
+            var photo = await MediaPicker.CapturePhotoAsync();
+            if (photo is not null)
+            {
+                await Task.Delay(500);
+                await ReadFile(photo);
+            }
         }
 
         private async void PickFile()
@@ -43,9 +61,9 @@ namespace ShannonEntropy.ViewModels
             await Task.Yield();
             try
             {
-                if (!await Permisos.TenemosPermiso(Permission.Storage))
+                if (await Permisos.EnsurePermission<Permissions.Camera>(AppResources.AllowAccess) != PermissionStatus.Granted)
                 {
-                    await Permisos.PedirPermiso(Permission.Storage, AppResources.AllowAccess);
+                    Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera, AppResources.Alert, "Ok");
                 }
                 var pfile = await FilePicker.PickAsync();
                 if (pfile is not null)
@@ -93,7 +111,7 @@ namespace ShannonEntropy.ViewModels
             }
             FileInfo file = new FileInfo(pfile.FullPath);
             var mb = file.Length.ToSize(BytesConverter.SizeUnits.MB);
-            if (mb > 1)
+            if (mb > 20)
             {
                 if (!await Acr.UserDialogs.UserDialogs.Instance.ConfirmAsync(
                     AppResources.BigFile, AppResources.Alert,
@@ -102,8 +120,43 @@ namespace ShannonEntropy.ViewModels
                     return;
                 }
             }
-
             this.Image = (FileImageSource)FileImageSource.FromFile(file.FullName);
+            Calculate();
+        }
+        private async void Calculate()
+        {
+            using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
+            {
+                await Process();
+            }
+        }
+
+        private async Task Process()
+        {
+            await Task.Yield();
+
+            //switch (this.Image)
+            //{
+            //    case FileImageSource file:
+            //        await Calculate(new FileInfo(file.File));
+            //        break;
+            //    default:
+            //        using (Stream stream = imageSource.ImageToStream())
+            //        {
+            //            if (stream is null)
+            //            {
+            //                Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.ErrorPickingFile, AppResources.Alert, "Ok");
+            //                return;
+            //            }
+            //            string path = Path.Combine(Tools.Instance.LibraryPath, $"{Guid.NewGuid():N}.png");
+            //            using (FileStream file = new FileStream(path, FileMode.OpenOrCreate))
+            //            {
+            //                stream.Position = 0;
+            //                await stream.CopyToAsync(file);
+            //            }
+            //        }
+            //        break;
+            //}
         }
         public async void Load(FileResult pfile)
         {

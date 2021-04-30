@@ -132,3 +132,5 @@ float Calculate(float* EventsProbability,int size)
 	}
 	return totalEntropy;
 }
+
+//[ FROM IMAGE ]

@@ -175,6 +175,12 @@ Continue?</value>
   <data name="FromTextSubtitle" xml:space="preserve">
     <value>Represents the number of bits required to encode the message using a optimal encoder</value>
   </data>
+  <data name="HasDeniedCamera" xml:space="preserve">
+    <value>You have disabled camera permisson for this application, to enable go to app settings and activate camera under the permissions menu.</value>
+  </data>
+  <data name="HasDeniedStorage" xml:space="preserve">
+    <value>You have disabled camera permisson for this application, to enable go to app settings and activate storage under the permissions menu.</value>
+  </data>
   <data name="ItsAFileNotAnImage" xml:space="preserve">
     <value>The selected file is a text document, calculate the entropy of text instead?</value>
   </data>
@@ -193,6 +199,9 @@ Continue?</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Please wait...</value>
+  </data>
+  <data name="TakePhoto" xml:space="preserve">
+    <value>Take photo</value>
   </data>
   <data name="Theory" xml:space="preserve">
     <value>Theoretical foundation</value>

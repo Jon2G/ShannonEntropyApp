@@ -175,6 +175,12 @@
   <data name="FromTextSubtitle" xml:space="preserve">
     <value>Representa el número necesario de bits para codificar el mensaje en un codificador óptimo</value>
   </data>
+  <data name="HasDeniedCamera" xml:space="preserve">
+    <value>Ha denegado el acceso a su camera, por favor permita el acceso desde ajustes de su dispositivo</value>
+  </data>
+  <data name="HasDeniedStorage" xml:space="preserve">
+    <value>Ha denegado el acceso a su almacenamiento por favor permita el acceso desde ajustes de su dispositivo</value>
+  </data>
   <data name="ItsAFileNotAnImage" xml:space="preserve">
     <value>El archivo seleccionado es un archivo de texto ¿Calcular la entropia del texto en su lugar?</value>
   </data>
@@ -193,6 +199,9 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Por favor espere...</value>
+  </data>
+  <data name="TakePhoto" xml:space="preserve">
+    <value>Tomar fotografía</value>
   </data>
   <data name="Theory" xml:space="preserve">
     <value>Fundamento teórico</value>
