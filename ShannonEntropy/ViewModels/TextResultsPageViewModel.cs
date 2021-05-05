@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Kit;
 using Kit.Model;
 using P42.Utils;
 using ShannonEntropy.EntropyLibrary;
@@ -46,8 +46,29 @@ namespace ShannonEntropy.ViewModels
             this.Symbols = null;
         }
 
-        public async Task Calculate(StringBuilder text)
+        public Task Calculate(StringBuilder text)
         {
+            return Task.Run(() =>
+            {
+                EntropyLibrary.EntropyLibrary calc = new();
+                lock (calc)
+                {
+                    using (calc)
+                    {
+                        string temp = Path.Combine(Tools.Instance.TemporalPath, $"{Guid.NewGuid():N}.txt");
+                        FileInfo file = new FileInfo(temp);
+                        if (!file.Directory.Exists)
+                        {
+                            file.Directory.Create();
+                        }
+                        File.WriteAllText(file.FullName, text.ToString());
+                        calc.ReadFromFile(temp);
+                        this.TotalEntropy = calc.GetTotalEntropy();
+                        this.Symbols = calc.GetSymbols();
+                        calc.Release();
+                    }
+                }
+            });
         }
 
         public Task Calculate(FileInfo file)
@@ -67,33 +88,5 @@ namespace ShannonEntropy.ViewModels
                 }
             });
         }
-
-        //public async Task Calculate(StringBuilder text)
-        //{
-        //    await Task.Yield();
-        //    for (int i = 0; i < text.Length; i++)
-        //    {
-        //        AddCharacter(text[i]);
-        //    }
-        //    CalculateTotalEntropy();
-        //}
-        //public void AddCharacter(char character)
-        //{
-        //    if (this.Symbols.TryGetValue(character, out Symbol symbol))
-        //    {
-        //        symbol.Count++;
-        //        return;
-        //    }
-        //    this.Symbols.Add(character, new Symbol(character));
-        //}
-        //private void CalculateTotalEntropy()
-        //{
-        //    foreach (var symbol in Symbols.Values)
-        //    {
-        //        symbol.CalculateFrecuency(Symbols.Values.Sum(x => x.Count));
-        //    }
-        //    this.TotalEntropy = EntropyCalculator.Calculate(Symbols.Values.Select(x => x.Frecuency));
-        //    Raise(() => TotalEntropy);
-        //}
     }
 }

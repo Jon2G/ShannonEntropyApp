@@ -18,19 +18,27 @@ namespace ShannonEntropy.Views
         {
             InitializeComponent();
         }
-        internal async void Calculate(StringBuilder text)
+        internal void Calculate(StringBuilder text)
         {
-            using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
+            this.Appearing += async (o, e) =>
             {
-                await this.Model.Calculate(text);
-            }
+                using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
+                {
+                    await this.Model.Calculate(text);
+                }
+            };
         }
-        internal async void Calculate(FileInfo file)
+        internal void Calculate(FileInfo file)
         {
-            using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
+            this.Appearing +=async (o, e) =>
             {
-                await this.Model.Calculate(file);
-            }
+                using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
+                {
+                    await this.Model.Calculate(file);
+                }
+            };
         }
+
+
     }
 }

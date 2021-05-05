@@ -181,6 +181,9 @@
   <data name="HasDeniedStorage" xml:space="preserve">
     <value>Ha denegado el acceso a su almacenamiento por favor permita el acceso desde ajustes de su dispositivo</value>
   </data>
+  <data name="HystogramChannel" xml:space="preserve">
+    <value>Histograma por canal</value>
+  </data>
   <data name="ItsAFileNotAnImage" xml:space="preserve">
     <value>El archivo seleccionado es un archivo de texto ¿Calcular la entropia del texto en su lugar?</value>
   </data>
@@ -199,6 +202,9 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Por favor espere...</value>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>Ejemplos</value>
   </data>
   <data name="TakePhoto" xml:space="preserve">
     <value>Tomar fotografía</value>

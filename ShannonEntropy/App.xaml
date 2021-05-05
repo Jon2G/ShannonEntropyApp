@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="ShannonEntropy.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
@@ -31,6 +32,11 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
+            </Style>
+            <Style x:Key="card" TargetType="pancakeView:PancakeView">
+                <Setter Property="BackgroundColor" Value="#ffffff" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Shadow" Value="{pancakeView:ShadowMarkup BlurRadius=8, Opacity=0.2, Offset='4,4'}" />
             </Style>
             <Color x:Key="Accent">#3ab8b0</Color>
         </ResourceDictionary>        

@@ -36,7 +36,7 @@ extern "C" {
 	double GetTotalEntropy(EntropyLibrary* handle);
 	void ReleaseEntropyLibrary(EntropyLibrary* handle);
 
-	unsigned long GetSymbolsLenght(EntropyLibrary* handle);
+	unsigned int GetSymbolsLenght(EntropyLibrary* handle);
 	///Arreglos proyectados
 	float Calculate(float* EventsProbability, int size);
 	char GetSymbolChar(EntropyLibrary* handle, unsigned long index);

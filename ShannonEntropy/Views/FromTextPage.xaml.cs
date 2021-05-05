@@ -25,5 +25,9 @@ namespace ShannonEntropy.Views
         {
             this.Model.TextChanged(e);
         }
+        public void Load(StringBuilder text)
+        {
+            this.Model.Load(text);
+        }
     }
 }

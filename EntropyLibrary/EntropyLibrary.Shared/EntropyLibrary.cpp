@@ -108,9 +108,9 @@ int ReadFromFile(EntropyLibrary* handle, const char* Filepath)
 	return EXIT_SUCCESS;
 }
 
-unsigned long  GetSymbolsLenght(EntropyLibrary* handle)
+unsigned int  GetSymbolsLenght(EntropyLibrary* handle)
 {
-	return handle->Symbols.size();
+	return (unsigned int)handle->Symbols.size();
 }
 char GetSymbolChar(EntropyLibrary* handle, unsigned long index) {
 	return handle->Symbols[index]->Character;
@@ -123,12 +123,13 @@ float GetSymbolFrecuency(EntropyLibrary* handle, unsigned long index) {
 }
 
 
-float Calculate(float* EventsProbability,int size)
+float Calculate(float* EventsProbability, int size)
 {
 	float totalEntropy = 0;
 	for (int i = 0; i < size; i++) {
 		float probability = EventsProbability[i];
-		totalEntropy += (probability * log2(1 / probability));
+		if (probability > 0)
+			totalEntropy += (probability * log2(1 / probability));
 	}
 	return totalEntropy;
 }

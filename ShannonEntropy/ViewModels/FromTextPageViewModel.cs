@@ -57,6 +57,7 @@ namespace ShannonEntropy.ViewModels
         public ICommand PickFileCommand { get; set; }
         public ICommand CleanCommand { get; set; }
         public Command CalculateCommand { get; set; }
+        public ICommand SamplesCommand { get; set; }
         public FromTextPageViewModel()
         {
             this.Text = new StringBuilder(500);
@@ -64,19 +65,23 @@ namespace ShannonEntropy.ViewModels
             this.PickFileCommand = new Command(PickFile);
             this.CleanCommand = new Command(Clean);
             this.CalculateCommand = new Command(Calculate, canExecute: () => Lenght > 0);
+            this.SamplesCommand = new Command(Samples);
         }
-
+        private void Samples()
+        {
+            Shell.Current.Navigation.PushAsync(new TextSamples());
+        }
         private async void Calculate()
         {
             var page = new TextResultsPage();
-            await Shell.Current.Navigation.PushAsync(page);
             page.Calculate(this.Text);
+            await Shell.Current.Navigation.PushAsync(page);
         }
         private async void Calculate(FileInfo file)
         {
             var page = new TextResultsPage();
-            await Shell.Current.Navigation.PushAsync(page);
             page.Calculate(file);
+            await Shell.Current.Navigation.PushAsync(page);
         }
 
         private async void Clean()
@@ -159,6 +164,12 @@ namespace ShannonEntropy.ViewModels
 
 
 
+        public void Load(StringBuilder sb)
+        {
+            this.MaxLenght = sb.Length;
+            this.Text = sb;
+            Raise(()=>Lenght);
+        }
         public async void Load(FileResult pfile)
         {
             using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))

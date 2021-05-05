@@ -24,7 +24,7 @@ namespace ShannonEntropy.EntropyLibrary
         public static extern int ReadFromFile(EntropyLibrarySafeHandle handle, string FilePath);
 
         [DllImport(DllName, EntryPoint = nameof(GetSymbolsLenght))]
-        public static extern ulong GetSymbolsLenght(EntropyLibrarySafeHandle handle);
+        public static extern uint GetSymbolsLenght(EntropyLibrarySafeHandle handle);
 
         [DllImport(DllName, EntryPoint = nameof(GetSymbolChar))]
         public static extern char GetSymbolChar(EntropyLibrarySafeHandle handle,ulong index);

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:converters="clr-namespace:Kit.Forms.Converters;assembly=Kit.Forms"
+             xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
+             xmlns:fonts="clr-namespace:ShannonEntropy.Fonts;assembly=ShannonEntropy"
+             xmlns:text="clr-namespace:System.Text;assembly=netstandard"
+             x:Class="ShannonEntropy.Views.TextSamples" x:DataType="viewModels:TextSamplesViewModel">
+    <ContentPage.BindingContext>
+        <viewModels:TextSamplesViewModel x:Name="Model" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Samples}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="text:StringBuilder">
+                    <pancakeView:PancakeView>
+                        <StackLayout Margin="5" Padding="3" Spacing="5" Orientation="Horizontal">
+                            <Frame BorderColor="Black"  Padding="5" VerticalOptions="FillAndExpand" HeightRequest="150" 
+                                   HorizontalOptions="StartAndExpand">
+                                <Label TextColor="Black" VerticalOptions="Start"
+                                       Text="{Binding .}" BackgroundColor="White"/>
+                            </Frame>
+                            <Button WidthRequest="40" Padding="0" HeightRequest="150" TextColor="White" FontAttributes="Bold" FontSize="16" 
+                                    Text="{x:Static fonts:FontelloIcons.Letter}" FontFamily="{x:Static fonts:FontelloIcons.Font}"
+                                    Command="{Binding CalculateCommand,Source={x:Reference Model}}" 
+                                    CommandParameter="{Binding .}"/>
+                       
+                        </StackLayout>
+                    </pancakeView:PancakeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

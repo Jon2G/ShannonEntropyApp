@@ -80,7 +80,7 @@ namespace ShannonEntropy.ViewModels
             else
             {
                 this.EquiProbable = false;
-                double ent = EntropyLibrary.EntropyLibrary.Calculate((float)Event1 / 100f, (float)Event2 / 100f) * 100;
+                double ent = EntropyLibrary.EntropyLibrary.Calculate((float)Event1 / 100f, (float)Event2 / 100f);
                 if (ent > 100)
                 {
                     ent = 100;

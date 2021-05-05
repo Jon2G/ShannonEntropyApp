@@ -5,10 +5,13 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FFImageLoading.Forms;
 using Kit;
 using Kit.Extensions;
 using Kit.Forms.Extensions;
 using Kit.Model;
+using ShannonEntropy.EntropyLibrary;
+using ShannonEntropy.Models;
 using ShannonEntropy.Resources;
 using ShannonEntropy.Views;
 using Xamarin.Essentials;
@@ -34,11 +37,18 @@ namespace ShannonEntropy.ViewModels
         public ICommand PickFileCommand { get; set; }
         public ICommand CalculateCommand { get; set; }
         public ICommand TakePhotoCommand { get; set; }
+        public ICommand SamplesCommand { get; set; }
         public FromPhotoPageViewModel()
         {
             this.PickFileCommand = new Command(PickFile);
-            this.CalculateCommand = new Command(Calculate);
+            this.CalculateCommand = new Xamarin.Forms.Command<CachedImage>(Calculate);
             this.TakePhotoCommand = new Command(TakePhoto);
+            this.SamplesCommand = new Command(Samples);
+        }
+
+        private void Samples()
+        {
+            Shell.Current.Navigation.PushAsync(new ImagesSamples());
         }
 
         private async void TakePhoto()
@@ -121,42 +131,15 @@ namespace ShannonEntropy.ViewModels
                 }
             }
             this.Image = (FileImageSource)FileImageSource.FromFile(file.FullName);
-            Calculate();
         }
-        private async void Calculate()
+        private async void Calculate(CachedImage Image)
         {
+            PictureHystogram PictureHystogram = null;
             using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
             {
-                await Process();
+                PictureHystogram = await EntropyLibrary.EntropyLibrary.CalculateEntropy(Image);
             }
-        }
-
-        private async Task Process()
-        {
-            await Task.Yield();
-
-            //switch (this.Image)
-            //{
-            //    case FileImageSource file:
-            //        await Calculate(new FileInfo(file.File));
-            //        break;
-            //    default:
-            //        using (Stream stream = imageSource.ImageToStream())
-            //        {
-            //            if (stream is null)
-            //            {
-            //                Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.ErrorPickingFile, AppResources.Alert, "Ok");
-            //                return;
-            //            }
-            //            string path = Path.Combine(Tools.Instance.LibraryPath, $"{Guid.NewGuid():N}.png");
-            //            using (FileStream file = new FileStream(path, FileMode.OpenOrCreate))
-            //            {
-            //                stream.Position = 0;
-            //                await stream.CopyToAsync(file);
-            //            }
-            //        }
-            //        break;
-            //}
+            await App.Current.MainPage.Navigation.PushAsync(new PhotoResults(PictureHystogram));
         }
         public async void Load(FileResult pfile)
         {

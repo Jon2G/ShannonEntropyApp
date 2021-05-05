@@ -5,25 +5,28 @@
              xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:converters="clr-namespace:Kit.Forms.Converters;assembly=Kit.Forms"
              x:Class="ShannonEntropy.Views.FromImage"
              Title="{x:Static resource:AppResources.FromPhoto}">
     <ContentPage.BindingContext>
         <viewModels:FromPhotoPageViewModel x:Name="Model"/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <converters:NegateConverter x:Key="NegateConverter"/>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{x:Static resource:AppResources.OpenFile}" Command="{Binding PickFileCommand}"/>
         <ToolbarItem Text="{x:Static resource:AppResources.TakePhoto}" Command="{Binding TakePhotoCommand}" Order="Secondary"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Margin="5" Padding="3" Spacing="5">
             <forms:CachedImage DownsampleToViewSize="True"  x:Name="Image"
-                VerticalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" 
                 Source="{Binding Image}">
-                <!--<forms:CachedImage.Transformations>
-                    <transformations:GrayscaleTransformation/>
-                </forms:CachedImage.Transformations>-->
             </forms:CachedImage>
-            <Button Text="{x:Static resource:AppResources.CalculateEntropy}" Command="{Binding CalculateCommand}"/>
+            <Button Text="{x:Static resource:AppResources.CalculateEntropy}" IsEnabled="{Binding IsLoading,Converter={StaticResource NegateConverter},Source={x:Reference Image}}"
+                    Command="{Binding CalculateCommand}" CommandParameter="{Binding Source={x:Reference Image}}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

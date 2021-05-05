@@ -251,6 +251,15 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Histograma por canal.
+        /// </summary>
+        internal static string HystogramChannel {
+            get {
+                return ResourceManager.GetString("HystogramChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El archivo seleccionado es un archivo de texto ¿Calcular la entropia del texto en su lugar?.
         /// </summary>
         internal static string ItsAFileNotAnImage {
@@ -302,6 +311,15 @@ namespace ShannonEntropy.Resources {
         internal static string PleaseWait {
             get {
                 return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejemplos.
+        /// </summary>
+        internal static string Samples {
+            get {
+                return ResourceManager.GetString("Samples", resourceCulture);
             }
         }
         

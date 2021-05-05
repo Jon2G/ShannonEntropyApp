@@ -13,11 +13,12 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{x:Static resource:AppResources.OpenFile}" Command="{Binding PickFileCommand}"/>
         <ToolbarItem Text="{x:Static resource:AppResources.Clean}" Order="Secondary" Command="{Binding CleanCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Margin="5" Padding="3" Spacing="5">
             <Grid RowDefinitions="*,40">
-                <Editor VerticalOptions="FillAndExpand" HeightRequest="500" Grid.RowSpan="2"
+                <Editor VerticalOptions="FillAndExpand" HeightRequest="500" Grid.RowSpan="2" x:Name="Editor"
                            Text="{Binding Text}" 
                            MaxLength="{Binding MaxLenght}" BackgroundColor="White"
                            AutoSize="TextChanges" TextChanged="InputView_OnTextChanged"/>
