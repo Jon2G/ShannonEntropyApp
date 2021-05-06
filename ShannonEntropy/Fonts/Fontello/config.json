@@ -41,6 +41,18 @@
       "css": "gauge-1",
       "code": 59396,
       "src": "entypo"
+    },
+    {
+      "uid": "ff16079eb4be12c49bf3014d2322acdd",
+      "css": "github-circled",
+      "code": 59397,
+      "src": "zocial"
+    },
+    {
+      "uid": "b49fa3e57e92b38143e0fdcc5d9a904b",
+      "css": "gmail",
+      "code": 59398,
+      "src": "zocial"
     }
   ]
 }

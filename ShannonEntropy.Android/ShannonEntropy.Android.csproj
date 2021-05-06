@@ -36,9 +36,11 @@
     <Debugger>Xamarin</Debugger>
     <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>false</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
@@ -46,6 +48,12 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AotAssemblies>true</AotAssemblies>
+    <EnableLLVM>true</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidLinkSkip>ShannonEntropy,ShannonEntropy.Android</AndroidLinkSkip>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -101,32 +109,57 @@
       <Link>libs\armeabi-v7a\libEntropyLibrary.so</Link>
     </AndroidNativeLibrary>
   </ItemGroup>
-
   <ItemGroup>
     <AndroidResource Include="..\Images\full_24bits_rgb.png">
       <Link>Resources\drawable\full_24bits_rgb.png</Link>
     </AndroidResource>
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="..\Images\i65.jpg">
       <Link>Resources\drawable\i65.jpg</Link>
     </AndroidResource>
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="..\Images\i69.jpg">
       <Link>Resources\drawable\i69.jpg</Link>
     </AndroidResource>
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="..\Images\i70.png">
       <Link>Resources\drawable\i70.png</Link>
     </AndroidResource>
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="..\Images\i81.png">
       <Link>Resources\drawable\i81.png</Link>
     </AndroidResource>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\Images\flip_coins.jpg">
+      <Link>Resources\drawable\flip_coins.jpg</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\Images\formula.png">
+      <Link>Resources\drawable\formula.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\Images\bmc_logo_yellow.png">
+      <Link>Resources\drawable\bmc_logo_yellow.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\Images\xamarin_icon.png">
+      <Link>Resources\drawable\xamarin_icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\Images\icon.png">
+      <Link>Resources\drawable\icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Kit\Kit.Droid\Kit.Droid.csproj">
@@ -147,7 +180,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\values\ic_launcher_background.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

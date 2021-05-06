@@ -130,6 +130,9 @@
     <value>El archivo seleccionado sobrepasa los 20 Mbs abrir archivos muy grandes podría causar la interrupción de la aplicación por restricción del sistema operativo o incluso bloquear el dispositivo
 ¿Continuar?</value>
   </data>
+  <data name="BuyMeACoffe" xml:space="preserve">
+    <value>Cómprame un café</value>
+  </data>
   <data name="CalculateEntropy" xml:space="preserve">
     <value>Calcular</value>
   </data>
@@ -144,6 +147,12 @@
   </data>
   <data name="CleanTextAsk" xml:space="preserve">
     <value>¿Limpiar texto?</value>
+  </data>
+  <data name="DevelopedBy" xml:space="preserve">
+    <value>Desarrollada por: Jonathan Eduardo G.G</value>
+  </data>
+  <data name="DevelopedFor" xml:space="preserve">
+    <value>Esta App fue desarrollada con la fines didacticos al ilustrar de forma sencilla la entropía de Shannon.</value>
   </data>
   <data name="EquiProbable" xml:space="preserve">
     <value>Eventos equiprobables</value>
@@ -175,6 +184,9 @@
   <data name="FromTextSubtitle" xml:space="preserve">
     <value>Representa el número necesario de bits para codificar el mensaje en un codificador óptimo</value>
   </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>Dale un vistazo al proyecto en Github</value>
+  </data>
   <data name="HasDeniedCamera" xml:space="preserve">
     <value>Ha denegado el acceso a su camera, por favor permita el acceso desde ajustes de su dispositivo</value>
   </data>
@@ -191,7 +203,7 @@
     <value>El archivo seleccionado es una imagen, ¿Calcular la entropia de esta imagen en su lugar?</value>
   </data>
   <data name="MainTitle" xml:space="preserve">
-    <value>Entropia de Shannon</value>
+    <value>Entropía de Shannon</value>
   </data>
   <data name="NotPlainTextFile" xml:space="preserve">
     <value>El archivo seleccionado no es un archivo de texto plano, si continua la lectura puede resultar en resultados inesperados.
@@ -212,11 +224,56 @@
   <data name="Theory" xml:space="preserve">
     <value>Fundamento teórico</value>
   </data>
+  <data name="Theory01" xml:space="preserve">
+    <value>En teória de la información, la </value>
+  </data>
+  <data name="Theory02" xml:space="preserve">
+    <value>entropía </value>
+  </data>
+  <data name="Theory03" xml:space="preserve">
+    <value>de una variable aleatoria es el promedio de la "información", "sorpresa" o "incierta" inherente a los posibles resultados de la variable. El concepto the entropía de la información fue introducido por </value>
+  </data>
+  <data name="Theory04" xml:space="preserve">
+    <value>en su artículo de 1948 "A Mathematical Theory of Communication" y frecuentemente es llamada </value>
+  </data>
+  <data name="Theory05" xml:space="preserve">
+    <value>entropía de Shannon </value>
+  </data>
+  <data name="Theory06" xml:space="preserve">
+    <value>en su honor. </value>
+  </data>
+  <data name="Theory07" xml:space="preserve">
+    <value>Como ejemplo, considere una moneda con probabilidad p de caer en cara y probabilidad 1-p de caer en cruz.La entropía máxima es para p = 1/2, cuando no hay razón para esperar un resultado sobre otro, y en este caso, el lanzamiento de una moneda tiene una entropía de un bit. La entropía mínima es cuando p = 0 o p = 1, cuando el evento es conocido y la entropía es cero bits. Otros valores de p dan diferentes entropías entre cero y uno bits. </value>
+  </data>
+  <data name="Theory08" xml:space="preserve">
+    <value>Fórmula</value>
+  </data>
+  <data name="Theory09" xml:space="preserve">
+    <value>Dada una variable discreta aleatoria </value>
+  </data>
+  <data name="Theory10" xml:space="preserve">
+    <value>, con posibles resultados </value>
+  </data>
+  <data name="Theory11" xml:space="preserve">
+    <value>, que ocurren con probabilidad </value>
+  </data>
+  <data name="Theory12" xml:space="preserve">
+    <value>la entropía de </value>
+  </data>
+  <data name="Theory13" xml:space="preserve">
+    <value>esta formalmente definida como: </value>
+  </data>
+  <data name="Theory14" xml:space="preserve">
+    <value>donde Sigma denota la suma de los posibles valores de la variable y log es el logaritmo, la elección de la base varía entre las diferentes aplicaciones. La base 2 da la unidad de bits (o "shannons"), mientras que la base e da las "unidades naturales" nat, y la base 10 da una unidad llamada "dits", "bans" o "hartleys". </value>
+  </data>
   <data name="TotalEntropy" xml:space="preserve">
     <value>Entropia total</value>
   </data>
   <data name="WeAreSorry" xml:space="preserve">
     <value>Lo sentimos...</value>
+  </data>
+  <data name="Xamarin" xml:space="preserve">
+    <value>Creado con la tecnología multiplataforma Xamarin.Forms</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sí</value>

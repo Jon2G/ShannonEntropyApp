@@ -98,6 +98,15 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cómprame un café.
+        /// </summary>
+        internal static string BuyMeACoffe {
+            get {
+                return ResourceManager.GetString("BuyMeACoffe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calcular.
         /// </summary>
         internal static string CalculateEntropy {
@@ -139,6 +148,24 @@ namespace ShannonEntropy.Resources {
         internal static string CleanTextAsk {
             get {
                 return ResourceManager.GetString("CleanTextAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desarrollada por: Jonathan Eduardo G.G.
+        /// </summary>
+        internal static string DevelopedBy {
+            get {
+                return ResourceManager.GetString("DevelopedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esta App fue desarrollada con la fines didacticos al ilustrar de forma sencilla la entropía de Shannon..
+        /// </summary>
+        internal static string DevelopedFor {
+            get {
+                return ResourceManager.GetString("DevelopedFor", resourceCulture);
             }
         }
         
@@ -233,6 +260,15 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dale un vistazo al proyecto en Github.
+        /// </summary>
+        internal static string GitHub {
+            get {
+                return ResourceManager.GetString("GitHub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ha denegado el acceso a su camera, por favor permita el acceso desde ajustes de su dispositivo.
         /// </summary>
         internal static string HasDeniedCamera {
@@ -278,7 +314,7 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entropia de Shannon.
+        ///   Looks up a localized string similar to Entropía de Shannon.
         /// </summary>
         internal static string MainTitle {
             get {
@@ -342,6 +378,132 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to En teória de la información, la .
+        /// </summary>
+        internal static string Theory01 {
+            get {
+                return ResourceManager.GetString("Theory01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to entropía .
+        /// </summary>
+        internal static string Theory02 {
+            get {
+                return ResourceManager.GetString("Theory02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to de una variable aleatoria es el promedio de la &quot;información&quot;, &quot;sorpresa&quot; o &quot;incierta&quot; inherente a los posibles resultados de la variable. El concepto the entropía de la información fue introducido por .
+        /// </summary>
+        internal static string Theory03 {
+            get {
+                return ResourceManager.GetString("Theory03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to en su artículo de 1948 &quot;A Mathematical Theory of Communication&quot; y frecuentemente es llamada .
+        /// </summary>
+        internal static string Theory04 {
+            get {
+                return ResourceManager.GetString("Theory04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to entropía de Shannon .
+        /// </summary>
+        internal static string Theory05 {
+            get {
+                return ResourceManager.GetString("Theory05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to en su honor. .
+        /// </summary>
+        internal static string Theory06 {
+            get {
+                return ResourceManager.GetString("Theory06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Como ejemplo, considere una moneda con probabilidad p de caer en cara y probabilidad 1-p de caer en cruz.La entropía máxima es para p = 1/2, cuando no hay razón para esperar un resultado sobre otro, y en este caso, el lanzamiento de una moneda tiene una entropía de un bit. La entropía mínima es cuando p = 0 o p = 1, cuando el evento es conocido y la entropía es cero bits. Otros valores de p dan diferentes entropías entre cero y uno bits. .
+        /// </summary>
+        internal static string Theory07 {
+            get {
+                return ResourceManager.GetString("Theory07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fórmula.
+        /// </summary>
+        internal static string Theory08 {
+            get {
+                return ResourceManager.GetString("Theory08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dada una variable discreta aleatoria .
+        /// </summary>
+        internal static string Theory09 {
+            get {
+                return ResourceManager.GetString("Theory09", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to , con posibles resultados .
+        /// </summary>
+        internal static string Theory10 {
+            get {
+                return ResourceManager.GetString("Theory10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to , que ocurren con probabilidad .
+        /// </summary>
+        internal static string Theory11 {
+            get {
+                return ResourceManager.GetString("Theory11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to la entropía de .
+        /// </summary>
+        internal static string Theory12 {
+            get {
+                return ResourceManager.GetString("Theory12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to esta formalmente definida como: .
+        /// </summary>
+        internal static string Theory13 {
+            get {
+                return ResourceManager.GetString("Theory13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to donde Sigma denota la suma de los posibles valores de la variable y log es el logaritmo, la elección de la base varía entre las diferentes aplicaciones. La base 2 da la unidad de bits (o &quot;shannons&quot;), mientras que la base e da las &quot;unidades naturales&quot; nat, y la base 10 da una unidad llamada &quot;dits&quot;, &quot;bans&quot; o &quot;hartleys&quot;. .
+        /// </summary>
+        internal static string Theory14 {
+            get {
+                return ResourceManager.GetString("Theory14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entropia total.
         /// </summary>
         internal static string TotalEntropy {
@@ -356,6 +518,15 @@ namespace ShannonEntropy.Resources {
         internal static string WeAreSorry {
             get {
                 return ResourceManager.GetString("WeAreSorry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creado con la tecnología multiplataforma Xamarin.Forms.
+        /// </summary>
+        internal static string Xamarin {
+            get {
+                return ResourceManager.GetString("Xamarin", resourceCulture);
             }
         }
         

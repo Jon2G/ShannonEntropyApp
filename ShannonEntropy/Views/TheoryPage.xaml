@@ -1,12 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShannonEntropy.Views.TheoryPage">
+             xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
+             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="ShannonEntropy.Views.TheoryPage"
+             Title="{x:Static resource:AppResources.MainTitle}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout Padding="10" VerticalOptions="FillAndExpand" Margin="5,10,0,20">
+                <Label TextColor="Black" Margin="0,5" Text="{x:Static resource:AppResources.MainTitle}" FontSize="18" FontAttributes="Bold"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{x:Static resource:AppResources.Theory01}"/>
+                            <Span Text="{x:Static resource:AppResources.Theory02} " FontAttributes="Bold"/>
+                            <Span Text="{x:Static resource:AppResources.Theory03}"/>
+                            <Span Text="Claude Shannon " FontAttributes="Bold"/>
+                            <Span Text="{x:Static resource:AppResources.Theory04}"/>
+                            <Span Text="{x:Static resource:AppResources.Theory05} " FontAttributes="Bold"/>
+                            <Span Text="{x:Static resource:AppResources.Theory06}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <pancakeView:PancakeView Style="{StaticResource card}" Padding="10" BackgroundColor="White">
+                    <StackLayout Padding="0" Spacing="5">
+                        <Image Source="flip_coins.jpg"/>
+                        <Label Text="http://www.cngcoins.com/" FontSize="10" HorizontalTextAlignment="End"/>
+                        <Label Text="File:Ephesos_620-600_BC.jpg - Creative Commons" FontSize="10" HorizontalTextAlignment="End"/>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{x:Static resource:AppResources.Theory07}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </pancakeView:PancakeView>
+                <Label Margin="0,5" Text="{x:Static resource:AppResources.Theory08}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{x:Static resource:AppResources.Theory09}"/>
+                            <Span Text="X" FontAttributes="Bold,Italic"/>
+                            <Span Text="{x:Static resource:AppResources.Theory10}"/>
+                            <Span Text="X1,...,Xn" FontAttributes="Bold,Italic"/>
+                            <Span Text="{x:Static resource:AppResources.Theory11}"/>
+                            <Span Text="P(x1),...,P(xn), " FontAttributes="Bold,Italic"/>
+                            <Span Text="{x:Static resource:AppResources.Theory12}"/>
+                            <Span Text="X " FontAttributes="Bold,Italic"/>
+                            <Span Text="{x:Static resource:AppResources.Theory13}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <pancakeView:PancakeView HeightRequest="80" Style="{StaticResource card}" Padding="0" BackgroundColor="#F6FFF6">
+                    <Image Source="formula.png" HeightRequest="80"/>
+                </pancakeView:PancakeView>
+                <Label Text="{x:Static resource:AppResources.Theory14}"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

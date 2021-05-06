@@ -11,13 +11,13 @@
         <viewModels:FrecuencyVsEntropyPageViewModel x:Name="Model"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="5">
             <Label Text="{x:Static resource:AppResources.TotalEntropy}" 
                    FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"
                    FontSize="20"
                    TextColor="Black"/>
             <Grid RowDefinitions="*,Auto,*" VerticalOptions="FillAndExpand">
-                <radialSlider:RadialSlider
+                <radialSlider:RadialSlider InputTransparent="True"
                     ArcBackgroundColor="Gray"
                     ArcColor="{StaticResource Accent}"
                     KnobColor="White" x:Name="SliderT" Precision="2"

@@ -130,6 +130,9 @@
     <value>The selected file exceeds 20 Mbs opening very large files could cause the application to be interrupted due to operating system restrictions or even crash the device
 Continue?</value>
   </data>
+  <data name="BuyMeACoffe" xml:space="preserve">
+    <value>Buy me a Coffe</value>
+  </data>
   <data name="CalculateEntropy" xml:space="preserve">
     <value>Calculate</value>
   </data>
@@ -144,6 +147,12 @@ Continue?</value>
   </data>
   <data name="CleanTextAsk" xml:space="preserve">
     <value>¿Clear text?</value>
+  </data>
+  <data name="DevelopedBy" xml:space="preserve">
+    <value>Developed by: Jonathan Eduardo G.G</value>
+  </data>
+  <data name="DevelopedFor" xml:space="preserve">
+    <value>Esta App fue desarrollada con la fines didacticos al ilustrar de forma sencilla la entropía de Shannon.</value>
   </data>
   <data name="EquiProbable" xml:space="preserve">
     <value>Equiprobable events</value>
@@ -174,6 +183,9 @@ Continue?</value>
   </data>
   <data name="FromTextSubtitle" xml:space="preserve">
     <value>Represents the number of bits required to encode the message using a optimal encoder</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>Take a look at the project on Github</value>
   </data>
   <data name="HasDeniedCamera" xml:space="preserve">
     <value>You have disabled camera permisson for this application, to enable go to app settings and activate camera under the permissions menu.</value>
@@ -212,11 +224,56 @@ Continue?</value>
   <data name="Theory" xml:space="preserve">
     <value>Theoretical foundation</value>
   </data>
+  <data name="Theory01" xml:space="preserve">
+    <value>In information theory, the </value>
+  </data>
+  <data name="Theory02" xml:space="preserve">
+    <value>entropy </value>
+  </data>
+  <data name="Theory03" xml:space="preserve">
+    <value>of a random variable is the average level of "information", "surprise", or "uncertainty" inherent in the variable's possible outcomes. The concept of information entropy was introduced by </value>
+  </data>
+  <data name="Theory04" xml:space="preserve">
+    <value>in his 1948 paper "A Mathematical Theory of Communication",and is sometimes called </value>
+  </data>
+  <data name="Theory05" xml:space="preserve">
+    <value>Shannon entropy </value>
+  </data>
+  <data name="Theory06" xml:space="preserve">
+    <value>in his honour. </value>
+  </data>
+  <data name="Theory07" xml:space="preserve">
+    <value>As an example, consider a biased coin with probability p of landing on heads and probability 1-p of landing on tails. The maximum surprise is for p = 1/2, when there is no reason to expect one outcome over another, and in this case a coin flip has an entropy of one bit. The minimum surprise is when p = 0 or p = 1, when the event is known and the entropy is zero bits. Other values of p give different entropies between zero and one bits. </value>
+  </data>
+  <data name="Theory08" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="Theory09" xml:space="preserve">
+    <value>Given a discrete random variable </value>
+  </data>
+  <data name="Theory10" xml:space="preserve">
+    <value>,with possible outcomes </value>
+  </data>
+  <data name="Theory11" xml:space="preserve">
+    <value>,which occur with probability </value>
+  </data>
+  <data name="Theory12" xml:space="preserve">
+    <value>the entropy of </value>
+  </data>
+  <data name="Theory13" xml:space="preserve">
+    <value>is formally defined as: </value>
+  </data>
+  <data name="Theory14" xml:space="preserve">
+    <value>where Sigma denotes the sum over the variable's possible values and log  is the logarithm, the choice of base varying between different applications. Base 2 gives the unit of bits (or "shannons"), while base e gives the "natural units" nat, and base 10 gives a unit called "dits", "bans", or "hartleys". </value>
+  </data>
   <data name="TotalEntropy" xml:space="preserve">
     <value>Total Entropy</value>
   </data>
   <data name="WeAreSorry" xml:space="preserve">
     <value>Oops...</value>
+  </data>
+  <data name="Xamarin" xml:space="preserve">
+    <value>Built with Xamarin.Forms cross-platform technology</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

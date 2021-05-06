@@ -8,13 +8,14 @@
 
   <ItemGroup>
     <None Remove="Fonts\Fontello\font\fontello_1.ttf" />
+    <None Remove="Fonts\Fontello\font\fontello_2.ttf" />
     <None Remove="Samples\Texts\A_Ladys_Story.txt" />
     <None Remove="Samples\Texts\LoremIpsum.txt" />
     <None Remove="Samples\Texts\Love.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Fonts\Fontello\font\fontello_1.ttf" />
+    <EmbeddedResource Include="Fonts\Fontello\font\fontello_2.ttf" />
     <EmbeddedResource Include="Samples\Texts\A_Ladys_Story.txt" />
     <EmbeddedResource Include="Samples\Texts\LoremIpsum.txt" />
     <EmbeddedResource Include="Samples\Texts\Love.txt" />
