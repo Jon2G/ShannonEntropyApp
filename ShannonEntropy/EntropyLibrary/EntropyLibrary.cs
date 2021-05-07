@@ -16,47 +16,87 @@ using Xamarin.Forms;
 
 namespace ShannonEntropy.EntropyLibrary
 {
-    public class EntropyLibrary : IDisposable
+    public static class EntropyLibrary
     {
-        private readonly EntropyLibrarySafeHandle _handle;
-
-        public EntropyLibrary()
+        private static Symbol FindSymbol(IEnumerable<Symbol> Symbols, int character)
         {
-            //string a = EntropyLibraryWrapper.getTemplateInfo();
-
-            _handle = EntropyLibraryWrapper.GetEntropyLibrary();
-        }
-
-        public void ReadFromFile(string file) =>
-            EntropyLibraryWrapper.ReadFromFile(_handle, file);
-
-        public double GetTotalEntropy() =>
-            EntropyLibraryWrapper.GetTotalEntropy(_handle);
-
-        public IEnumerable<Symbol> GetSymbols()
-        {
-            uint lenght = EntropyLibraryWrapper.GetSymbolsLenght(_handle);
-            Symbol[] symbols = new Symbol[lenght];
-            for (uint i = 0; i < lenght; i++)
+            int count = Symbols.Count();
+            for (int i = 0; i < count; i++)
             {
-                symbols[i] = new Symbol(EntropyLibraryWrapper.GetSymbolChar(_handle, i))
+                Symbol symbol = Symbols.ElementAt(i);
+                if (symbol.Character == character)
                 {
-                    Count = EntropyLibraryWrapper.GetSymbolCount(_handle, i),
-                    Frecuency = EntropyLibraryWrapper.GetSymbolFrecuency(_handle, i)
-                };
+                    return symbol;
+                }
             }
-            return symbols;
+            return null;
         }
+
+        public static Tuple<List<Symbol>,float> ReadFromFile(string file)
+        {
+            List<Symbol> Symbols = new List<Symbol>();
+            using (FileStream fs = File.OpenRead(file))
+            {
+                while (true)
+                {
+                    int bit = fs.ReadByte();
+                    if (bit <= 0) { break;}
+                    var character = (char)bit;
+                    if (character < 0) { break; }
+                    Symbol symbol = FindSymbol(Symbols, character);
+                    if (symbol is not null)
+                    {
+                        symbol.Count++;
+                        continue;
+                    }
+                    Symbols.Add(new Symbol(character));
+                }
+
+            }
+            Symbols.TrimExcess();
+            return new Tuple<List<Symbol>, float>(Symbols,CalculateTotalEntropy(Symbols.ToArray()));
+        }
+        private static float CalculateTotalEntropy(Symbol[] Symbols)
+        {
+            float TotalEntropy = 0;
+            uint TotalSymbols = 0;
+            for (int i = 0; i < Symbols.Length; i++)
+            {
+                Symbol symbol = Symbols[i];
+                TotalSymbols += symbol.Count;
+            }
+
+            for (int i = 0; i < Symbols.Length; i++)
+            {
+                Symbol symbol = Symbols[i];
+                double count = symbol.Count;
+                symbol.Frecuency = count / TotalSymbols;
+
+                TotalEntropy += (float)(symbol.Frecuency *Math.Log(1 / symbol.Frecuency,2));
+            }
+
+            return (float) TotalEntropy;
+        }
+
         public static float Calculate(params float[] Probabilities)
         {
-            IntPtr array = Marshal.AllocHGlobal(sizeof(float) * Probabilities.Length);
-            Marshal.Copy(Probabilities, 0, array, Probabilities.Length);
-            float ent = (float)Math.Round((EntropyLibraryWrapper.Calculate(array, Probabilities.Length) * 100));
+
+            int size = Probabilities.Length;
+            double totalEntropy = 0;
+            for (int i = 0; i < size; i++)
+            {
+                float probability = Probabilities[i];
+                if (probability > 0)
+                    totalEntropy += (probability * Math.Log(1 / probability, 2));
+            }
+
+            float ent = (float)Math.Round((totalEntropy * 100));
             if (ent > 100)
             {
                 ent = 100;
             }
             return ent;
+
         }
         public static async Task<PictureHystogram> CalculateEntropy(CachedImage FileInfo)
         {
@@ -108,11 +148,11 @@ namespace ShannonEntropy.EntropyLibrary
             }
 
             ulong total = 0;
-            for (int i = 0; i <256; i++)
+            for (int i = 0; i < 256; i++)
             {
                 total += rgbs[i];
             }
- 
+
             float[] frecuency = new float[256];
             for (int i = 0; i < 256; i++)
             {
@@ -124,23 +164,11 @@ namespace ShannonEntropy.EntropyLibrary
             {
                 float probability = frecuency[i];
                 if (probability > 0)
-                    totalEntropy += (float)(probability *Math.Log(1 / probability,2));
+                    totalEntropy += (float)(probability * Math.Log(1 / probability, 2));
             }
             return totalEntropy;
         }
 
 
-        public void Dispose()
-        {
-            if (_handle != null && !_handle.IsInvalid)
-            {
-                _handle.Dispose();
-            }
-        }
-
-        public void Release()
-        {
-            EntropyLibraryWrapper.ReleaseEntropyLibrary(_handle);
-        }
     }
 }

@@ -1,32 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
-             xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
-             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             xmlns:converters="clr-namespace:Kit.Forms.Converters;assembly=Kit.Forms"
-             x:Class="ShannonEntropy.Views.FromImage"
-             Title="{x:Static resource:AppResources.FromPhoto}">
+<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
+          xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
+          xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+          xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+          xmlns:converters="clr-namespace:Kit.Forms.Converters;assembly=Kit.Forms"
+          xmlns:pages="clr-namespace:Kit.Forms.Pages;assembly=Kit.Forms"
+          xmlns:fonts="clr-namespace:ShannonEntropy.Fonts;assembly=ShannonEntropy"
+          x:Class="ShannonEntropy.Views.FromImage"
+          Title="{x:Static resource:AppResources.FromPhoto}">
     <ContentPage.BindingContext>
         <viewModels:FromPhotoPageViewModel x:Name="Model"/>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <converters:NegateConverter x:Key="NegateConverter"/>
     </ContentPage.Resources>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{x:Static resource:AppResources.OpenFile}" Command="{Binding PickFileCommand}"/>
-        <ToolbarItem Text="{x:Static resource:AppResources.TakePhoto}" Command="{Binding TakePhotoCommand}" Order="Secondary"/>
-        <ToolbarItem Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}" Order="Secondary"/>
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Margin="5" Padding="3" Spacing="5">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="10,0" Spacing="20">
+                    <ImageButton Command="{Binding PickFileCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Photo}"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                    <ImageButton Command="{Binding TakePhotoCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Camera}"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                    <ImageButton Command="{Binding CleanCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                </StackLayout>
+                <Button BackgroundColor="{StaticResource  Primary}" WidthRequest="100" HorizontalOptions="EndAndExpand" Padding="3,0" Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}"/>
+            </StackLayout>
             <forms:CachedImage DownsampleToViewSize="True"  x:Name="Image"
-                VerticalOptions="FillAndExpand" 
-                Source="{Binding Image}">
+                               VerticalOptions="FillAndExpand" 
+                               Source="{Binding Image}">
             </forms:CachedImage>
             <Button Text="{x:Static resource:AppResources.CalculateEntropy}" IsEnabled="{Binding IsLoading,Converter={StaticResource NegateConverter},Source={x:Reference Image}}"
                     Command="{Binding CalculateCommand}" CommandParameter="{Binding Source={x:Reference Image}}"/>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</pages:BasePage>

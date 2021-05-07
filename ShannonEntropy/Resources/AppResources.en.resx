@@ -152,7 +152,7 @@ Continue?</value>
     <value>Developed by: Jonathan Eduardo G.G</value>
   </data>
   <data name="DevelopedFor" xml:space="preserve">
-    <value>Esta App fue desarrollada con la fines didacticos al ilustrar de forma sencilla la entropía de Shannon.</value>
+    <value>This App was developed for didactic purposes by simply illustrating Shannon's entropy.</value>
   </data>
   <data name="EquiProbable" xml:space="preserve">
     <value>Equiprobable events</value>

@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace ShannonEntropy.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FromImage : ContentPage
+    public partial class FromImage 
     {
         public FromImage(FileResult file) : this()
         {

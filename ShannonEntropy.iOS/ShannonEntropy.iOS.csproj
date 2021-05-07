@@ -53,7 +53,9 @@
     <MtouchInterpreter>-all</MtouchInterpreter>
     <OptimizePNGs>false</OptimizePNGs>
     <CodesignProvision>DebugShannon</CodesignProvision>
-    <MtouchExtraArgs>--marshal-objectivec-exceptions=throwmanaged</MtouchExtraArgs>
+    <MtouchExtraArgs>
+    </MtouchExtraArgs>
+    <MtouchFastDev>false</MtouchFastDev>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -183,7 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs">
-      <Version>7.1.0.483</Version>
+      <Version>7.1.0.514</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
@@ -208,14 +210,6 @@
       <Project>{91E34037-2D7B-44E3-BC31-AA689378842D}</Project>
       <Name>ShannonEntropy</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <NativeReference Include="Native References/libEntropyLibrary.iOS.a">
-      <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <IsCxx>True</IsCxx>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20-2x.png">
@@ -276,6 +270,9 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ItunesArtwork-2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>

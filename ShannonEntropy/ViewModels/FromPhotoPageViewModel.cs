@@ -9,6 +9,7 @@ using FFImageLoading.Forms;
 using Kit;
 using Kit.Extensions;
 using Kit.Forms.Extensions;
+using Kit.Forms.Services;
 using Kit.Model;
 using ShannonEntropy.EntropyLibrary;
 using ShannonEntropy.Models;
@@ -38,14 +39,24 @@ namespace ShannonEntropy.ViewModels
         public ICommand CalculateCommand { get; set; }
         public ICommand TakePhotoCommand { get; set; }
         public ICommand SamplesCommand { get; set; }
+        public ICommand CleanCommand { get; set; }
         public FromPhotoPageViewModel()
         {
             this.PickFileCommand = new Command(PickFile);
             this.CalculateCommand = new Xamarin.Forms.Command<CachedImage>(Calculate);
             this.TakePhotoCommand = new Command(TakePhoto);
             this.SamplesCommand = new Command(Samples);
+            this.CleanCommand = new Command(Clean);
         }
-
+        private async void Clean()
+        {
+            if (await Acr.UserDialogs.UserDialogs.Instance.
+                ConfirmAsync(AppResources.CleanTextAsk,
+                    AppResources.Alert, AppResources.Yes, AppResources.Cancel))
+            {
+                this.Image =null;
+            }
+        }
         private void Samples()
         {
             Shell.Current.Navigation.PushAsync(new ImagesSamples());
@@ -75,7 +86,7 @@ namespace ShannonEntropy.ViewModels
                 {
                     Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera, AppResources.Alert, "Ok");
                 }
-                var pfile = await FilePicker.PickAsync();
+                var pfile = await MediaPicker.PickPhotoAsync();
                 if (pfile is not null)
                 {
                     await Task.Delay(500);
@@ -119,7 +130,8 @@ namespace ShannonEntropy.ViewModels
                 }
 
             }
-            FileInfo file = new FileInfo(pfile.FullPath);
+
+            FileInfo file = await pfile.LoadPhotoAsync();
             var mb = file.Length.ToSize(BytesConverter.SizeUnits.MB);
             if (mb > 20)
             {
@@ -137,7 +149,7 @@ namespace ShannonEntropy.ViewModels
             PictureHystogram PictureHystogram = null;
             using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
             {
-                PictureHystogram = await EntropyLibrary.EntropyLibrary.CalculateEntropy(Image);
+                PictureHystogram =await Task.Run(()=>EntropyLibrary.EntropyLibrary.CalculateEntropy(Image));
             }
             await App.Current.MainPage.Navigation.PushAsync(new PhotoResults(PictureHystogram));
         }

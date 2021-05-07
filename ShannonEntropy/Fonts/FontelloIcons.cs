@@ -4,7 +4,7 @@ using System.Text;
 using ShannonEntropy.Fonts;
 using Xamarin.Forms;
 
-[assembly: ExportFont("fontello_2.ttf", Alias = FontelloIcons.Font)]
+[assembly: ExportFont("fontello_4.ttf", Alias =FontelloIcons.Font)]
 namespace ShannonEntropy.Fonts
 {
     public static class FontelloIcons
@@ -17,6 +17,11 @@ namespace ShannonEntropy.Fonts
         public const string SpeedMeter = "\uE804";
         public const string Github = "\uE805";
         public const string GMail = "\uE806";
+        public const string RightArrow = "\uF105";
+        public const string ThreeDots = "\uF0C9";
+        public const string Camera = "\uE807";
+        public const string Folder = "\uE808";
+        public const string TrashBin = "\uF1F8";
         public const string Font = "FontIcon";
     }
 }

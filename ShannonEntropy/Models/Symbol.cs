@@ -8,9 +8,9 @@ namespace ShannonEntropy.Models
     public class Symbol : ModelBase
     {
         public char Character { get; }
-        private int _Count;
+        private uint _Count;
 
-        public int Count
+        public uint Count
         {
             get => _Count;
             set

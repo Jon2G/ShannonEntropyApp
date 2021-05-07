@@ -50,24 +50,16 @@ namespace ShannonEntropy.ViewModels
         {
             return Task.Run(() =>
             {
-                EntropyLibrary.EntropyLibrary calc = new();
-                lock (calc)
+                string temp = Path.Combine(Tools.Instance.TemporalPath, $"{Guid.NewGuid():N}.txt");
+                FileInfo file = new FileInfo(temp);
+                if (!file.Directory.Exists)
                 {
-                    using (calc)
-                    {
-                        string temp = Path.Combine(Tools.Instance.TemporalPath, $"{Guid.NewGuid():N}.txt");
-                        FileInfo file = new FileInfo(temp);
-                        if (!file.Directory.Exists)
-                        {
-                            file.Directory.Create();
-                        }
-                        File.WriteAllText(file.FullName, text.ToString());
-                        calc.ReadFromFile(temp);
-                        this.TotalEntropy = calc.GetTotalEntropy();
-                        this.Symbols = calc.GetSymbols();
-                        calc.Release();
-                    }
+                    file.Directory.Create();
                 }
+                File.WriteAllText(file.FullName, text.ToString(),Encoding.UTF7);
+                var result = EntropyLibrary.EntropyLibrary.ReadFromFile(temp);
+                this.TotalEntropy = result.Item2;
+                this.Symbols = result.Item1;
             });
         }
 
@@ -75,17 +67,9 @@ namespace ShannonEntropy.ViewModels
         {
             return Task.Run(() =>
             {
-                EntropyLibrary.EntropyLibrary calc = new();
-                lock (calc)
-                {
-                    using (calc)
-                    {
-                        calc.ReadFromFile(file.FullName);
-                        this.TotalEntropy = calc.GetTotalEntropy();
-                        this.Symbols = calc.GetSymbols();
-                        calc.Release();
-                    }
-                }
+                var calc = EntropyLibrary.EntropyLibrary.ReadFromFile(file.FullName);
+                this.TotalEntropy = calc.Item2;
+                this.Symbols = calc.Item1;
             });
         }
     }
