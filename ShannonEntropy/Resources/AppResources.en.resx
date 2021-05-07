@@ -202,6 +202,9 @@ Continue?</value>
   <data name="ItsAnImageNotAFile" xml:space="preserve">
     <value>The selected file is an image, calculate the entropy of image instead?</value>
   </data>
+  <data name="Licenses" xml:space="preserve">
+    <value>Licenses and credits</value>
+  </data>
   <data name="MainTitle" xml:space="preserve">
     <value>Shannon's entropy</value>
   </data>
@@ -215,8 +218,17 @@ Continue?</value>
   <data name="PleaseWait" xml:space="preserve">
     <value>Please wait...</value>
   </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Report a bug</value>
+  </data>
+  <data name="RequestFeature" xml:space="preserve">
+    <value>Request a new feature</value>
+  </data>
   <data name="Samples" xml:space="preserve">
     <value>Samples</value>
+  </data>
+  <data name="SpecialThanks" xml:space="preserve">
+    <value>Special thanks to "Tapia Sanchez Daniel" for his excellent teacher labor .</value>
   </data>
   <data name="TakePhoto" xml:space="preserve">
     <value>Take photo</value>

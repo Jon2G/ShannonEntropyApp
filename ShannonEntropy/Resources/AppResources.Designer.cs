@@ -314,6 +314,15 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Licencias y créditos.
+        /// </summary>
+        internal static string Licenses {
+            get {
+                return ResourceManager.GetString("Licenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entropía de Shannon.
         /// </summary>
         internal static string MainTitle {
@@ -351,11 +360,38 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reportar un bug.
+        /// </summary>
+        internal static string ReportBug {
+            get {
+                return ResourceManager.GetString("ReportBug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitar una nueva característica.
+        /// </summary>
+        internal static string RequestFeature {
+            get {
+                return ResourceManager.GetString("RequestFeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ejemplos.
         /// </summary>
         internal static string Samples {
             get {
                 return ResourceManager.GetString("Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agradecimiento especial a &quot;Tapia Sanchez Daniel&quot; por su excelente labor docente..
+        /// </summary>
+        internal static string SpecialThanks {
+            get {
+                return ResourceManager.GetString("SpecialThanks", resourceCulture);
             }
         }
         

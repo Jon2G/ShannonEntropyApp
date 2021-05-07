@@ -16,11 +16,15 @@ namespace ShannonEntropy.ViewModels
         public ICommand GMailCommand { get; }
         public ICommand XamarinCommand { get; }
         public ICommand GitHubCommand { get; }
+        public ICommand ReportBugCommand { get; }
+        public ICommand RequestFeatureCommand { get; }
         public AboutPageViewModel()
         {
             this.BuyMeACoffeCommand = new Command(BuyMeACoffe);
             this.XamarinCommand = new Command(Xamarin);
             this.GitHubCommand = new Command(GitHub);
+            this.ReportBugCommand = new Command(ReportBug);
+            this.RequestFeatureCommand = new Command(RequestFeature);
             this.GMailCommand = new Command(GMail);
         }
 
@@ -44,6 +48,8 @@ namespace ShannonEntropy.ViewModels
             }
 
         }
+        private void ReportBug() => OpenBrowser("https://github.com/Jouna77/ShannonEntropyApp/issues/new?assignees=Jouna77&labels=bug&template=bug_report.md&title=");
+        private void RequestFeature() => OpenBrowser("https://github.com/Jouna77/ShannonEntropyApp/issues/new?assignees=Jouna77&labels=enhancement&template=feature_request.md&title=");
         private void GitHub() => OpenBrowser("https://github.com/Jouna77/ShannonEntropyApp");
         private void Xamarin() => OpenBrowser("https://dotnet.microsoft.com/learn/xamarin/what-is-xamarin");
 

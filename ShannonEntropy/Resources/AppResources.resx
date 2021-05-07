@@ -202,6 +202,9 @@
   <data name="ItsAnImageNotAFile" xml:space="preserve">
     <value>El archivo seleccionado es una imagen, ¿Calcular la entropia de esta imagen en su lugar?</value>
   </data>
+  <data name="Licenses" xml:space="preserve">
+    <value>Licencias y créditos</value>
+  </data>
   <data name="MainTitle" xml:space="preserve">
     <value>Entropía de Shannon</value>
   </data>
@@ -215,8 +218,17 @@
   <data name="PleaseWait" xml:space="preserve">
     <value>Por favor espere...</value>
   </data>
+  <data name="ReportBug" xml:space="preserve">
+    <value>Reportar un bug</value>
+  </data>
+  <data name="RequestFeature" xml:space="preserve">
+    <value>Solicitar una nueva característica</value>
+  </data>
   <data name="Samples" xml:space="preserve">
     <value>Ejemplos</value>
+  </data>
+  <data name="SpecialThanks" xml:space="preserve">
+    <value>Agradecimiento especial a "Tapia Sanchez Daniel" por su excelente labor docente.</value>
   </data>
   <data name="TakePhoto" xml:space="preserve">
     <value>Tomar fotografía</value>
