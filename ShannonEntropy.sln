@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntropyLibrary", "EntropyLi
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		EntropyLibrary\EntropyLibrary.Shared\EntropyLibrary.Shared.vcxitems*{ae6393a4-d4bd-482e-b6e3-b9723ac9e8ab}*SharedItemsImports = 4
+		EntropyLibrary\EntropyLibrary.Shared\EntropyLibrary.Shared.vcxitems*{54f96047-80da-46ac-9566-4a7631fac4c9}*SharedItemsImports = 4
 		EntropyLibrary\EntropyLibrary.Shared\EntropyLibrary.Shared.vcxitems*{b0a288c3-140a-4713-bc75-48049d4017e3}*SharedItemsImports = 9
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

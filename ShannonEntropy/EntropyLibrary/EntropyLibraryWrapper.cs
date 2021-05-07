@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using Xamarin.Forms;
 
 namespace ShannonEntropy.EntropyLibrary
 {
     public static class EntropyLibraryWrapper
     {
-        const string DllName = "libEntropyLibrary";
+#if Android
+        const string DllName= "libEntropyLibrary";
+#else
+        const string DllName = "__Internal";
+#endif
         [DllImport(DllName)]
         public static extern string getTemplateInfo();
 

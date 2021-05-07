@@ -2,5 +2,5 @@
 
 char * iOSInfo()
 {
-	return EntropyLibrary::getTemplateInfo();
+	return getTemplateInfo();
 }
