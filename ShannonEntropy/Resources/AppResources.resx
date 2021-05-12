@@ -187,8 +187,17 @@
   <data name="GitHub" xml:space="preserve">
     <value>Dale un vistazo al proyecto en Github</value>
   </data>
+  <data name="GrantCamera" xml:space="preserve">
+    <value>Permite el acceso a la galeria para que puedas seleccionar fotos de tu dispositivo y calcular su entropia</value>
+  </data>
+  <data name="GrantPhotos" xml:space="preserve">
+    <value>Permite el acceso a la camara para que puedas tomar fotos de tu alrededor y calcular su entropia</value>
+  </data>
   <data name="HasDeniedCamera" xml:space="preserve">
     <value>Ha denegado el acceso a su camera, por favor permita el acceso desde ajustes de su dispositivo</value>
+  </data>
+  <data name="HasDeniedPhotos" xml:space="preserve">
+    <value>Ha denegado el acceso a la galeria,por favor permita el acceso desde ajustes de su dispositivo</value>
   </data>
   <data name="HasDeniedStorage" xml:space="preserve">
     <value>Ha denegado el acceso a su almacenamiento por favor permita el acceso desde ajustes de su dispositivo</value>
@@ -217,6 +226,9 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Por favor espere...</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Nunca veremos ni compartiremos tus fotos por ningun medio.</value>
   </data>
   <data name="ReportBug" xml:space="preserve">
     <value>Reportar un bug</value>
@@ -281,6 +293,9 @@
   <data name="TotalEntropy" xml:space="preserve">
     <value>Entropia total</value>
   </data>
+  <data name="WaitASecond" xml:space="preserve">
+    <value>Un momento...</value>
+  </data>
   <data name="WeAreSorry" xml:space="preserve">
     <value>Lo sentimos...</value>
   </data>
@@ -289,5 +304,8 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sí</value>
+  </data>
+  <data name="YouCanDisableThis" xml:space="preserve">
+    <value>*Puede modificar el acceso en cualquier momento desde la aplicación de ajustes.</value>
   </data>
 </root>

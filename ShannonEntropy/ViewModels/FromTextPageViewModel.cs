@@ -100,7 +100,6 @@ namespace ShannonEntropy.ViewModels
             await Task.Yield();
             try
             {
-
                 if (await Permisos.EnsurePermission<Permissions.StorageRead>(AppResources.AllowAccess) != PermissionStatus.Granted)
                 {
                     Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedStorage, AppResources.Alert, "Ok");

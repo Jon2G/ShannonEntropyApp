@@ -64,11 +64,20 @@ namespace ShannonEntropy.ViewModels
 
         private async void TakePhoto()
         {
-            if (await Permisos.EnsurePermission<Permissions.Camera>(AppResources.AllowAccess) != PermissionStatus.Granted)
+            var permiso = new Permissions.Camera();
+            if (!await Permisos.TenemosPermiso(permiso))
             {
-                Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera, AppResources.Alert, "Ok");
+                RequestCameraPage request = new RequestCameraPage();
+                await request.ShowDialog();
+                if (!permiso.ShouldShowRationale())
+                {
+                    await Task.Delay(500);
+                    Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera,
+                        AppResources.Alert);
+                    return;
+                }
+                return;
             }
-
             var photo = await MediaPicker.CapturePhotoAsync();
             if (photo is not null)
             {
@@ -82,9 +91,19 @@ namespace ShannonEntropy.ViewModels
             await Task.Yield();
             try
             {
-                if (await Permisos.EnsurePermission<Permissions.Camera>(AppResources.AllowAccess) != PermissionStatus.Granted)
+                var permiso = new Permissions.Photos();
+                if (!await Permisos.TenemosPermiso(new Permissions.Photos()))
                 {
-                    Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera, AppResources.Alert, "Ok");
+                    RequestCameraPage request = new RequestCameraPage();
+                    await request.ShowDialog();
+                    if (!permiso.ShouldShowRationale())
+                    {
+                        await Task.Delay(500);
+                        Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera,
+                            AppResources.Alert);
+                        return;
+                    }
+                    return;
                 }
                 var pfile = await MediaPicker.PickPhotoAsync();
                 if (pfile is not null)
@@ -146,6 +165,10 @@ namespace ShannonEntropy.ViewModels
         }
         private async void Calculate(CachedImage Image)
         {
+            if (Image?.Source is null)
+            {
+                return;
+            }
             PictureHystogram PictureHystogram = null;
             using (Acr.UserDialogs.UserDialogs.Instance.Loading(AppResources.PleaseWait))
             {

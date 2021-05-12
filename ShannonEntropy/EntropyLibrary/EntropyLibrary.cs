@@ -32,29 +32,41 @@ namespace ShannonEntropy.EntropyLibrary
             return null;
         }
 
-        public static Tuple<List<Symbol>,float> ReadFromFile(string file)
+        public static Tuple<List<Symbol>, float> ReadFromFile(string file)
         {
             List<Symbol> Symbols = new List<Symbol>();
             using (FileStream fs = File.OpenRead(file))
             {
-                while (true)
+                using (StreamReader sr = new StreamReader(fs, Encoding.UTF7))
                 {
-                    int bit = fs.ReadByte();
-                    if (bit <= 0) { break;}
-                    var character = (char)bit;
-                    if (character < 0) { break; }
-                    Symbol symbol = FindSymbol(Symbols, character);
-                    if (symbol is not null)
+                    while (true)
                     {
-                        symbol.Count++;
-                        continue;
+                        int bit = sr.Read();
+                        if (bit <= 0)
+                        {
+                            break;
+                        }
+
+                        var character = (char)bit;
+                        if (character < 0)
+                        {
+                            break;
+                        }
+
+                        Symbol symbol = FindSymbol(Symbols, character);
+                        if (symbol is not null)
+                        {
+                            symbol.Count++;
+                            continue;
+                        }
+
+                        Symbols.Add(new Symbol(character));
                     }
-                    Symbols.Add(new Symbol(character));
                 }
 
             }
             Symbols.TrimExcess();
-            return new Tuple<List<Symbol>, float>(Symbols,CalculateTotalEntropy(Symbols.ToArray()));
+            return new Tuple<List<Symbol>, float>(Symbols, CalculateTotalEntropy(Symbols.ToArray()));
         }
         private static float CalculateTotalEntropy(Symbol[] Symbols)
         {
@@ -72,10 +84,10 @@ namespace ShannonEntropy.EntropyLibrary
                 double count = symbol.Count;
                 symbol.Frecuency = count / TotalSymbols;
 
-                TotalEntropy += (float)(symbol.Frecuency *Math.Log(1 / symbol.Frecuency,2));
+                TotalEntropy += (float)(symbol.Frecuency * Math.Log(1 / symbol.Frecuency, 2));
             }
 
-            return (float) TotalEntropy;
+            return (float)TotalEntropy;
         }
 
         public static float Calculate(params float[] Probabilities)

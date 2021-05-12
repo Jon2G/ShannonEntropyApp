@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:BasePopUp xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fonts="clr-namespace:ShannonEntropy.Fonts;assembly=ShannonEntropy"
+             xmlns:pages="clr-namespace:Kit.Forms.Pages;assembly=Kit.Forms"
+             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
+             xmlns:resources="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
+             x:Class="ShannonEntropy.Views.RequestCameraPage" x:DataType="viewModels:RequestCameraPageViewModel">
+    <pages:BasePopUp.BindingContext>
+        <viewModels:RequestCameraPageViewModel/>
+    </pages:BasePopUp.BindingContext>
+    <ContentPage.Content>
+        <pancakeView:PancakeView Style="{StaticResource card}" HorizontalOptions="Center"  VerticalOptions="Center" Margin="5">
+            <StackLayout>
+                <Label Text="{x:Static resources:AppResources.WaitASecond}"
+                       VerticalOptions="Start"  Padding="10" FontSize="20"
+                       HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryDark}"
+                       TextColor="{StaticResource TextColor}"  />
+                <StackLayout Margin="5" Padding="5">
+
+                    <StackLayout Orientation="Horizontal" Margin="3" Padding="10">
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" 
+                                                 Glyph="{x:Static fonts:FontelloIcons.Camera}" 
+                                                 Color="Black"/>
+                            </Image.Source>
+                        </Image>
+
+                        <Label TextColor="Black" Text="{x:Static resources:AppResources.GrantCamera}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="3" Padding="10">
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" 
+                                                 Glyph="{x:Static fonts:FontelloIcons.Photo}" 
+                                                 Color="Black"/>
+                            </Image.Source>
+                        </Image>
+
+                        <Label TextColor="Black" Text="{x:Static resources:AppResources.GrantPhotos}"/>
+                    </StackLayout>
+                    <Label TextColor="Black" Text="{x:Static resources:AppResources.Privacy}"/>
+                    <Button Text="Continuar" Command="{Binding ContinueCommand}"/>
+                    <Label TextColor="Black" VerticalOptions="End" Text="{x:Static resources:AppResources.YouCanDisableThis}"/>
+                </StackLayout>
+            </StackLayout>
+        </pancakeView:PancakeView>
+    </ContentPage.Content>
+</pages:BasePopUp>

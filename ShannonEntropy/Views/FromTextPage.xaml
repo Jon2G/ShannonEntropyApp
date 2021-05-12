@@ -13,24 +13,24 @@
         <viewModels:FromTextPageViewModel x:Name="Model"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Margin="5" Padding="3" Spacing="5">
+        <Grid Margin="5" Padding="3" RowDefinitions="Auto,*,Auto" RowSpacing="5">
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" >
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="10,0" Spacing="20">
-                    <ImageButton Command="{Binding PickFileCommand}">
+                    <ImageButton Command="{Binding PickFileCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Folder}"/>
+                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Folder}"/>
                         </ImageButton.Source>
                     </ImageButton>
-                    <ImageButton Command="{Binding CleanCommand}">
+                    <ImageButton Command="{Binding CleanCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
+                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
                         </ImageButton.Source>
                     </ImageButton>
                 </StackLayout>
                 <Button BackgroundColor="{StaticResource  Primary}" WidthRequest="100" HorizontalOptions="EndAndExpand" Padding="3,0" Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}"/>
             </StackLayout>
-            <Grid RowDefinitions="*,40">
-                <Editor VerticalOptions="FillAndExpand" HeightRequest="500" Grid.RowSpan="2" x:Name="Editor"
+            <Grid Grid.Row="1" RowDefinitions="*,40" BackgroundColor="Red">
+                <Editor VerticalOptions="FillAndExpand" Grid.RowSpan="2" x:Name="Editor"
                            Text="{Binding Text}" 
                            MaxLength="{Binding MaxLenght}" BackgroundColor="White"
                            AutoSize="TextChanges" TextChanged="InputView_OnTextChanged"/>
@@ -58,7 +58,7 @@
                     </Label.Style>
                 </Label>
             </Grid>
-            <Button Text="{x:Static resource:AppResources.CalculateEntropy}" Command="{Binding CalculateCommand}"/>
-        </StackLayout>
+            <Button Grid.Row="2" Text="{x:Static resource:AppResources.CalculateEntropy}" Command="{Binding CalculateCommand}"/>
+        </Grid>
     </ContentPage.Content>
 </pages:BasePage>

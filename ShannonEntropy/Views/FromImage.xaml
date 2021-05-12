@@ -20,19 +20,19 @@
         <StackLayout Margin="5" Padding="3" Spacing="5">
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" >
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="10,0" Spacing="20">
-                    <ImageButton Command="{Binding PickFileCommand}">
+                    <ImageButton Command="{Binding PickFileCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Photo}"/>
+                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Photo}"/>
                         </ImageButton.Source>
                     </ImageButton>
-                    <ImageButton Command="{Binding TakePhotoCommand}">
+                    <ImageButton Command="{Binding TakePhotoCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Camera}"/>
+                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Camera}"/>
                         </ImageButton.Source>
                     </ImageButton>
-                    <ImageButton Command="{Binding CleanCommand}">
+                    <ImageButton Command="{Binding CleanCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
+                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
                         </ImageButton.Source>
                     </ImageButton>
                 </StackLayout>

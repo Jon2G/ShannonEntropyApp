@@ -269,11 +269,38 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permite el acceso a la galeria para que puedas seleccionar fotos de tu dispositivo y calcular su entropia.
+        /// </summary>
+        internal static string GrantCamera {
+            get {
+                return ResourceManager.GetString("GrantCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Permite el acceso a la camara para que puedas tomar fotos de tu alrededor y calcular su entropia.
+        /// </summary>
+        internal static string GrantPhotos {
+            get {
+                return ResourceManager.GetString("GrantPhotos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ha denegado el acceso a su camera, por favor permita el acceso desde ajustes de su dispositivo.
         /// </summary>
         internal static string HasDeniedCamera {
             get {
                 return ResourceManager.GetString("HasDeniedCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ha denegado el acceso a la galeria,por favor permita el acceso desde ajustes de su dispositivo.
+        /// </summary>
+        internal static string HasDeniedPhotos {
+            get {
+                return ResourceManager.GetString("HasDeniedPhotos", resourceCulture);
             }
         }
         
@@ -356,6 +383,15 @@ namespace ShannonEntropy.Resources {
         internal static string PleaseWait {
             get {
                 return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nunca veremos ni compartiremos tus fotos por ningun medio..
+        /// </summary>
+        internal static string Privacy {
+            get {
+                return ResourceManager.GetString("Privacy", resourceCulture);
             }
         }
         
@@ -549,6 +585,15 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Un momento....
+        /// </summary>
+        internal static string WaitASecond {
+            get {
+                return ResourceManager.GetString("WaitASecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lo sentimos....
         /// </summary>
         internal static string WeAreSorry {
@@ -572,6 +617,15 @@ namespace ShannonEntropy.Resources {
         internal static string Yes {
             get {
                 return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *Puede modificar el acceso en cualquier momento desde la aplicación de ajustes..
+        /// </summary>
+        internal static string YouCanDisableThis {
+            get {
+                return ResourceManager.GetString("YouCanDisableThis", resourceCulture);
             }
         }
     }

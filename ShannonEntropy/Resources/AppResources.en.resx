@@ -187,11 +187,20 @@ Continue?</value>
   <data name="GitHub" xml:space="preserve">
     <value>Take a look at the project on Github</value>
   </data>
+  <data name="GrantCamera" xml:space="preserve">
+    <value>Allows access to the camera so you can take photos of your surroundings and calculate his entropy</value>
+  </data>
+  <data name="GrantPhotos" xml:space="preserve">
+    <value>Allows access to the gallery so you can select photos from your device and calculate their entropy</value>
+  </data>
   <data name="HasDeniedCamera" xml:space="preserve">
-    <value>You have disabled camera permisson for this application, to enable go to app settings and activate camera under the permissions menu.</value>
+    <value>You have disabled camera permisson for this application, to enable go to settings  app and activate camera under the permissions menu.</value>
+  </data>
+  <data name="HasDeniedPhotos" xml:space="preserve">
+    <value>You have disabled photos gallery permisson for this application, to enable go to settings app and activate it under the permissions menu.</value>
   </data>
   <data name="HasDeniedStorage" xml:space="preserve">
-    <value>You have disabled camera permisson for this application, to enable go to app settings and activate storage under the permissions menu.</value>
+    <value>You have disabled camera permisson for this application, to enable go to settings  app and activate storage under the permissions menu.</value>
   </data>
   <data name="HystogramChannel" xml:space="preserve">
     <value>Hystogram by channel</value>
@@ -217,6 +226,9 @@ Continue?</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Please wait...</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>We will never see or share your photos.</value>
   </data>
   <data name="ReportBug" xml:space="preserve">
     <value>Report a bug</value>
@@ -281,6 +293,9 @@ Continue?</value>
   <data name="TotalEntropy" xml:space="preserve">
     <value>Total Entropy</value>
   </data>
+  <data name="WaitASecond" xml:space="preserve">
+    <value>Wait...</value>
+  </data>
   <data name="WeAreSorry" xml:space="preserve">
     <value>Oops...</value>
   </data>
@@ -289,5 +304,8 @@ Continue?</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="YouCanDisableThis" xml:space="preserve">
+    <value>*You can change this option later on settings app</value>
   </data>
 </root>

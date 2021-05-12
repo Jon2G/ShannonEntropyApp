@@ -20,23 +20,19 @@
                 </Label>
                 <Label HorizontalTextAlignment="Center" Text="{x:Static resource:AppResources.HystogramChannel}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
                
-                <pancakeView:PancakeView Style="{StaticResource card}" Margin="5">
+                <pancakeView:PancakeView Style="{StaticResource card}" Margin="5" Padding="5">
                     <StackLayout>
-                        <Image HeightRequest="120" HorizontalOptions="FillAndExpand" Aspect="AspectFit"
+                        <Image HeightRequest="120" HorizontalOptions="FillAndExpand" Aspect="AspectFit" 
                                Source="{Binding Red.HystogramPhoto}"/>
                     </StackLayout>
                 </pancakeView:PancakeView>
-                <pancakeView:PancakeView Style="{StaticResource card}" Margin="5">
-                    <StackLayout>
-                        <Image HeightRequest="120" HorizontalOptions="FillAndExpand" Aspect="AspectFit"
-                               Source="{Binding Green.HystogramPhoto}"/>
-                    </StackLayout>
+                <pancakeView:PancakeView Style="{StaticResource card}" Margin="5" Padding="5">
+                    <Image HeightRequest="120" HorizontalOptions="FillAndExpand" Aspect="AspectFit" 
+                           Source="{Binding Green.HystogramPhoto}"/>
                 </pancakeView:PancakeView>
-                <pancakeView:PancakeView Style="{StaticResource card}" Margin="5">
-                    <StackLayout>
-                        <Image HeightRequest="120" HorizontalOptions="FillAndExpand" Aspect="AspectFit"
-                               Source="{Binding Blue.HystogramPhoto}"/>
-                    </StackLayout>
+                <pancakeView:PancakeView Style="{StaticResource card}" Margin="5" Padding="5">
+                    <Image HeightRequest="120" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Aspect="AspectFit"
+                           Source="{Binding Blue.HystogramPhoto}"/>
                 </pancakeView:PancakeView>
             </StackLayout>
         </ScrollView>

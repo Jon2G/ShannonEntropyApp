@@ -16,11 +16,7 @@ namespace ShannonEntropy.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            JavaSystem.LoadLibrary("EntropyLibrary");
             LoadApplication(new App());
-
-
-
         }
     }
 }

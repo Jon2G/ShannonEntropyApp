@@ -54,6 +54,12 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <AndroidLinkSkip>ShannonEntropy,ShannonEntropy.Android</AndroidLinkSkip>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\jonyj\AppData\Local\Xamarin\Mono for Android\Keystore\JonathanEduardoGG\JonathanEduardoGG.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>Sur8@166</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>jonathaneduardogg</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Sur8@166</AndroidSigningKeyPass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -66,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs">
-      <Version>7.1.0.483</Version>
+      <Version>7.1.0.514</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
@@ -94,20 +100,6 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidNativeLibrary Include="..\EntropyLibrary\EntropyLibrary.Android\x86\Debug\libEntropyLibrary.so">
-      <Link>libs\x86\libEntropyLibrary.so</Link>
-    </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="..\EntropyLibrary\EntropyLibrary.Android\ARM64\Debug\libEntropyLibrary.so">
-      <Link>libs\arm64-v8a\libEntropyLibrary.so</Link>
-    </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="..\EntropyLibrary\EntropyLibrary.Android\x64\Debug\libEntropyLibrary.so">
-      <Link>libs\x86_64\libEntropyLibrary.so</Link>
-    </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="..\EntropyLibrary\EntropyLibrary.Android\ARM\Debug\libEntropyLibrary.so">
-      <Link>libs\armeabi-v7a\libEntropyLibrary.so</Link>
-    </AndroidNativeLibrary>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="..\Images\full_24bits_rgb.png">
@@ -159,8 +151,6 @@
       <Link>Resources\drawable\icon.png</Link>
     </AndroidResource>
   </ItemGroup>
-  
-
   <ItemGroup>
     <ProjectReference Include="..\..\..\Kit\Kit.Droid\Kit.Droid.csproj">
       <Project>{69924835-ccfb-4764-a16f-f31295748c29}</Project>
