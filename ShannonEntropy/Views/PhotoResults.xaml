@@ -5,11 +5,11 @@
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
              x:Class="ShannonEntropy.Views.PhotoResults" x:DataType="models:PictureHystogram"
-              BackgroundColor="WhiteSmoke"  Title="{x:Static resource:AppResources.FromPhoto}">
+              BackgroundColor="{AppThemeBinding Light={StaticResource LBackground},Dark={StaticResource DBackground}}"  Title="{x:Static resource:AppResources.FromPhoto}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="5" Spacing="10">
-                <Label FontSize="18" FontAttributes="Bold" TextColor="Black">
+                <Label FontSize="18" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black,Dark=White}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span  Text="{x:Static resource:AppResources.TotalEntropy}"/>
@@ -18,7 +18,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label HorizontalTextAlignment="Center" Text="{x:Static resource:AppResources.HystogramChannel}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                <Label HorizontalTextAlignment="Center" Text="{x:Static resource:AppResources.HystogramChannel}" FontSize="18" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black,Dark=White}"/>
                
                 <pancakeView:PancakeView Style="{StaticResource card}" Margin="5" Padding="5">
                     <StackLayout>

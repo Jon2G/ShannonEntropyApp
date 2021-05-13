@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:radialSlider="clr-namespace:Plugin.RadialSlider;assembly=Plugin.RadialSlider"
              xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
              xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
-             x:Class="ShannonEntropy.Views.FrecuencyVsEntropyPage" BackgroundColor="WhiteSmoke"
+             xmlns:controls="clr-namespace:Kit.Forms.Controls;assembly=Kit.Forms"
+             x:Class="ShannonEntropy.Views.FrecuencyVsEntropyPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LBackground},Dark={StaticResource DBackground}}"
              Title="{x:Static resource:AppResources.FrecuencyEntropy}"
              x:DataType="viewModels:FrecuencyVsEntropyPageViewModel">
     <ContentPage.BindingContext>
@@ -15,12 +16,13 @@
             <Label Text="{x:Static resource:AppResources.TotalEntropy}" 
                    FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"
                    FontSize="20"
-                   TextColor="Black"/>
+                   TextColor="{AppThemeBinding Light=Black,Dark=White}"/>
             <Grid RowDefinitions="*,Auto,*" VerticalOptions="FillAndExpand">
-                <radialSlider:RadialSlider InputTransparent="True"
+                <controls:RadialSlider InputTransparent="True"
                     ArcBackgroundColor="Gray"
-                    ArcColor="{StaticResource Accent}"
-                    KnobColor="White" x:Name="SliderT" Precision="2"
+                    TextColor="{AppThemeBinding Light=Black,Dark=White}"
+                    ArcColor="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}"
+                    KnobColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" x:Name="SliderT" Precision="2"
                     Min="0"
                     Max="100" 
                     ShowValue="True" 
@@ -29,29 +31,31 @@
                 <Label Text="{x:Static resource:AppResources.EquiProbable}" Grid.Row="1" IsVisible="{Binding EquiProbable}"
                        FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"
                        FontSize="20"
-                       TextColor="Black"/>
+                       TextColor="{AppThemeBinding Light=Black,Dark=White}"/>
                 <Grid ColumnDefinitions="*,*" Grid.Row="2">
                     <StackLayout Spacing="0">
-                        <radialSlider:RadialSlider Padding="0" 
-                                                   Margin="10,0" Precision="2"
+                        <controls:RadialSlider Padding="0" 
+                                               Margin="10,0" Precision="2"
+                                               TextColor="{AppThemeBinding Light=Black,Dark=White}"
                             ArcBackgroundColor="Gray"  x:Name="Slider1"
-                            ArcColor="{StaticResource Accent}"
-                            KnobColor="White"
+                            ArcColor="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}"
+                            KnobColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}"
                             Min="0" HeightRequest="150"
                             Max="100" Value="{Binding Event1}"
                             ShowValue="True" 
                             />
-                        <Label Text="{x:Static resource:AppResources.Event1}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" FontSize="20" TextColor="Black"/>
+                        <Label Text="{x:Static resource:AppResources.Event1}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" FontSize="20" TextColor="{AppThemeBinding Light=Black,Dark=White}"/>
                     </StackLayout>
                     <StackLayout Grid.Column="1">
-                        <radialSlider:RadialSlider
+                        <controls:RadialSlider 
                         ArcBackgroundColor="Gray" x:Name="Slider2" Precision="2"
-                        ArcColor="{StaticResource Accent}"
-                        KnobColor="White" HeightRequest="150"
+                        TextColor="{AppThemeBinding Light=Black,Dark=White}"
+                        ArcColor="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}"
+                        KnobColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" HeightRequest="150"
                         Min="0"  Value="{Binding Event2}"
                         Max="100"
                         ShowValue="True"/>
-                        <Label FontSize="20" TextColor="Black" Text="{x:Static resource:AppResources.Event2}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"/>
+                        <Label FontSize="20" TextColor="{AppThemeBinding Light=Black,Dark=White}" Text="{x:Static resource:AppResources.Event2}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"/>
                     </StackLayout>
                 </Grid>
             </Grid>

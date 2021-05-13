@@ -21,7 +21,7 @@ namespace ShannonEntropy.ViewModels
             this.CalculateCommand = new Xamarin.Forms.Command<CachedImage>(Calculate);
             this.Samples=new List<FileImageSource>()
             {
-                "i65.png","i70.png","i69.jpg","i81.png","full_24bits_rgb"
+                "i65","i70","i69","i81","full_24bits_rgb"
             };
         }
 

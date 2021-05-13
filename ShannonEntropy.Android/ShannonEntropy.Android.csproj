@@ -38,28 +38,36 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidLinkSkip>
     </AndroidLinkSkip>
+    <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
     <DebugType>portable</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AotAssemblies>true</AotAssemblies>
-    <EnableLLVM>true</EnableLLVM>
-    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
-    <AndroidLinkMode>Full</AndroidLinkMode>
-    <AndroidLinkSkip>ShannonEntropy,ShannonEntropy.Android</AndroidLinkSkip>
-    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
     <AndroidKeyStore>true</AndroidKeyStore>
     <AndroidSigningKeyStore>C:\Users\jonyj\AppData\Local\Xamarin\Mono for Android\Keystore\JonathanEduardoGG\JonathanEduardoGG.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>Sur8@166</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>jonathaneduardogg</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Sur8@166</AndroidSigningKeyPass>
+    <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <AndroidLinkSkip>ShannonEntropy;MoyskleyTech.ImageProcessing.PNGCodec;MoyskleyTech.ImageProcessing.</AndroidLinkSkip>
+    <LangVersion>latest</LangVersion>
+    <AndroidLinkTool>r8</AndroidLinkTool>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -73,6 +81,9 @@
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.514</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
@@ -117,13 +128,13 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="..\Images\i70.png">
-      <Link>Resources\drawable\i70.png</Link>
+    <AndroidResource Include="..\Images\i70.jpg">
+      <Link>Resources\drawable\i70.jpg</Link>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="..\Images\i81.png">
-      <Link>Resources\drawable\i81.png</Link>
+    <AndroidResource Include="..\Images\i81.jpg">
+      <Link>Resources\drawable\i81.jpg</Link>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
@@ -155,14 +166,6 @@
     <ProjectReference Include="..\..\..\Kit\Kit.Droid\Kit.Droid.csproj">
       <Project>{69924835-ccfb-4764-a16f-f31295748c29}</Project>
       <Name>Kit.Droid</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Kit\Kit.Forms\Kit.Forms.csproj">
-      <Project>{deedbfe5-b7e3-44a8-a7fb-4c377ed78a20}</Project>
-      <Name>Kit.Forms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Kit\Kit\Kit.csproj">
-      <Project>{adb807b9-87d7-4449-8f0f-dbef2b697f95}</Project>
-      <Name>Kit</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShannonEntropy\ShannonEntropy.csproj">
       <Project>{91E34037-2D7B-44E3-BC31-AA689378842D}</Project>

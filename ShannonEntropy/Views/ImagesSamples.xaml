@@ -25,7 +25,7 @@
                                                Source="{Binding .}">
                             </forms:CachedImage>
                             <Grid WidthRequest="40">
-                                <Button Padding="0" HeightRequest="150" TextColor="White" FontAttributes="Bold" FontSize="16" 
+                                <Button Padding="0" HeightRequest="150" TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" FontAttributes="Bold" FontSize="16" 
                                         Text="{x:Static fonts:FontelloIcons.Photo}" FontFamily="{x:Static fonts:FontelloIcons.Font}"
                                         IsEnabled="{Binding IsLoading,Converter={StaticResource NegateConverter},Source={x:Reference Image}}"
                                         Command="{Binding CalculateCommand,Source={x:Reference Model}}" 

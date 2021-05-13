@@ -15,8 +15,8 @@
             <StackLayout>
                 <Label Text="{x:Static resources:AppResources.WaitASecond}"
                        VerticalOptions="Start"  Padding="10" FontSize="20"
-                       HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryDark}"
-                       TextColor="{StaticResource TextColor}"  />
+                       HorizontalOptions="FillAndExpand" BackgroundColor="{AppThemeBinding Light={StaticResource LPrimaryDark},Dark={StaticResource DPrimaryDark}}"
+                       TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}"  />
                 <StackLayout Margin="5" Padding="5">
 
                     <StackLayout Orientation="Horizontal" Margin="3" Padding="10">

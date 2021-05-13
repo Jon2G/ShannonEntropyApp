@@ -7,7 +7,8 @@
              xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:fonts="clr-namespace:ShannonEntropy.Fonts;assembly=ShannonEntropy"
              xmlns:pages="clr-namespace:Kit.Forms.Pages;assembly=Kit.Forms"
-             x:Class="ShannonEntropy.Views.FromTextPage" BackgroundColor="#F1F1FE"
+             x:Class="ShannonEntropy.Views.FromTextPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LBackground},Dark={StaticResource DBackground}}"
              Title="{x:Static resource:AppResources.FromText}" x:DataType="viewModels:FromTextPageViewModel">
     <ContentPage.BindingContext>
         <viewModels:FromTextPageViewModel x:Name="Model"/>
@@ -18,21 +19,24 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="10,0" Spacing="20">
                     <ImageButton Command="{Binding PickFileCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Folder}"/>
+                            <FontImageSource Color="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Folder}"/>
                         </ImageButton.Source>
                     </ImageButton>
                     <ImageButton Command="{Binding CleanCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
+                            <FontImageSource Color="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
                         </ImageButton.Source>
                     </ImageButton>
                 </StackLayout>
-                <Button BackgroundColor="{StaticResource  Primary}" WidthRequest="100" HorizontalOptions="EndAndExpand" Padding="3,0" Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}"/>
+                <Button 
+                    BackgroundColor="{AppThemeBinding Light={StaticResource LAccent},Dark={StaticResource DAccent}}" 
+                    WidthRequest="100" HorizontalOptions="EndAndExpand" Padding="3,0" Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}"/>
             </StackLayout>
-            <Grid Grid.Row="1" RowDefinitions="*,40" BackgroundColor="Red">
+            <Grid Grid.Row="1" RowDefinitions="*,40" >
                 <Editor VerticalOptions="FillAndExpand" Grid.RowSpan="2" x:Name="Editor"
-                           Text="{Binding Text}" 
-                           MaxLength="{Binding MaxLenght}" BackgroundColor="White"
+                        TextColor="{AppThemeBinding Light=Black,Dark=White}"
+                           Text="{Binding Text}" BackgroundColor="{AppThemeBinding Light={StaticResource LSecondaryBackground},Dark={StaticResource DSecondaryBackground}}"
+                           MaxLength="{Binding MaxLenght}" 
                            AutoSize="TextChanges" TextChanged="InputView_OnTextChanged"/>
                 <Label Margin="10,0" Grid.Row="1" 
                        Text="{Binding Lenght,StringFormat='{0}/500'}" 

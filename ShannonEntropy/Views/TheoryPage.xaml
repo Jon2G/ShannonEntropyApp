@@ -4,12 +4,13 @@
              xmlns:resource="clr-namespace:ShannonEntropy.Resources;assembly=ShannonEntropy"
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="ShannonEntropy.Views.TheoryPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LBackground},Dark={StaticResource DBackground}}"
              Title="{x:Static resource:AppResources.MainTitle}">
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout Padding="10" VerticalOptions="FillAndExpand" Margin="5,10,0,20">
-                <Label TextColor="Black" Margin="0,5" Text="{x:Static resource:AppResources.MainTitle}" FontSize="18" FontAttributes="Bold"/>
-                <Label>
+                <Label  TextColor="{AppThemeBinding Light=Black,Dark=White}" Margin="0,5" Text="{x:Static resource:AppResources.MainTitle}" FontSize="18" FontAttributes="Bold"/>
+                <Label TextColor="{AppThemeBinding Light=Black,Dark=White}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{x:Static resource:AppResources.Theory01}"/>
@@ -22,7 +23,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <pancakeView:PancakeView Style="{StaticResource card}" Padding="10" BackgroundColor="White">
+                <pancakeView:PancakeView Style="{StaticResource card}" Padding="10" >
                     <StackLayout Padding="0" Spacing="5">
                         <Image Source="flip_coins.jpg"/>
                         <Label Text="http://www.cngcoins.com/" FontSize="10" HorizontalTextAlignment="End"/>
@@ -36,8 +37,8 @@
                         </Label>
                     </StackLayout>
                 </pancakeView:PancakeView>
-                <Label Margin="0,5" Text="{x:Static resource:AppResources.Theory08}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
-                <Label>
+                <Label Margin="0,5" Text="{x:Static resource:AppResources.Theory08}" FontSize="18" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black,Dark=White}"/>
+                <Label TextColor="{AppThemeBinding Light=Black,Dark=White}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{x:Static resource:AppResources.Theory09}"/>
@@ -52,10 +53,10 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <pancakeView:PancakeView HeightRequest="80" Style="{StaticResource card}" Padding="0" BackgroundColor="#F6FFF6">
+                <pancakeView:PancakeView HeightRequest="80" Style="{StaticResource card}" Padding="0" >
                     <Image Source="formula.png" HeightRequest="80"/>
                 </pancakeView:PancakeView>
-                <Label Text="{x:Static resource:AppResources.Theory14}"/>
+                <Label Text="{x:Static resource:AppResources.Theory14}" TextColor="{AppThemeBinding Light=Black,Dark=White}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

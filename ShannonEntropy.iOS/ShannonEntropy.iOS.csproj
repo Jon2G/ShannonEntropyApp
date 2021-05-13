@@ -34,11 +34,13 @@
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>Full</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <CodesignKey>Apple Distribution: Jonathan Garcia (L2WMS2JE6E)</CodesignKey>
     <CodesignProvision>ReleaseShannon</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <OptimizePNGs>true</OptimizePNGs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,13 +68,14 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignKey>Apple Distribution: Jonathan Garcia (25782E8V9A)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>Full</MtouchLink>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <OptimizePNGs>true</OptimizePNGs>
     <CodesignProvision>ReleaseShannon</CodesignProvision>
+    <MtouchExtraArgs>--linkskip ShannonEntropy</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -153,13 +156,13 @@
     </BundleResource>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="..\Images\i70.png">
-      <Link>Resources\i70.png</Link>
+    <BundleResource Include="..\Images\i70.jpg">
+      <Link>Resources\i70.jpg</Link>
     </BundleResource>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="..\Images\i81.png">
-      <Link>Resources\i81.png</Link>
+    <BundleResource Include="..\Images\i81.jpg">
+      <Link>Resources\i81.jpg</Link>
     </BundleResource>
   </ItemGroup>
   <ItemGroup>

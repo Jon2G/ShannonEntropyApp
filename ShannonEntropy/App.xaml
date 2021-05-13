@@ -8,20 +8,31 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="PrimaryDark">#00415B</Color>
-            <Color x:Key="PrimaryLight">#74b9ff</Color>
-            <Color x:Key="TextColor">White</Color>
+            <Color x:Key="DBackground">#161A1C</Color>
+            <Color x:Key="DSecondaryBackground">#2A2B2C</Color>
+            <Color x:Key="DPrimaryDark">#052C3B</Color>
+            <Color x:Key="DPrimaryLight">#2A72BA</Color>
+            <Color x:Key="DTextColor">White</Color>
+            <Color x:Key="DAccent">#0E8079</Color>
+
+           
+            <Color x:Key="LBackground">White</Color>
+            <Color x:Key="LSecondaryBackground">WhiteSmoke</Color>
+            <Color x:Key="LPrimaryDark">#00415B</Color>
+            <Color x:Key="LPrimaryLight">#74b9ff</Color>
+            <Color x:Key="LTextColor">White</Color>
+            <Color x:Key="LAccent">#3ab8b0</Color>
+
             <x:String x:Key="MainTitle">Entropia de Shannon</x:String>
 
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="{StaticResource TextColor}"></Setter>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LSecondaryBackground},Dark={StaticResource DSecondaryBackground}}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
@@ -34,11 +45,11 @@
                 </Setter>
             </Style>
             <Style x:Key="card" TargetType="pancakeView:PancakeView">
-                <Setter Property="BackgroundColor" Value="#ffffff" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LSecondaryBackground},Dark={StaticResource DSecondaryBackground}}" />
                 <Setter Property="CornerRadius" Value="8" />
                 <Setter Property="Shadow" Value="{pancakeView:ShadowMarkup BlurRadius=8, Opacity=0.2, Offset='4,4'}" />
             </Style>
-            <Color x:Key="Accent">#3ab8b0</Color>
+
         </ResourceDictionary>        
     </Application.Resources>
 </Application>

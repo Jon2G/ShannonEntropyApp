@@ -8,6 +8,7 @@
              xmlns:viewModels="clr-namespace:ShannonEntropy.ViewModels;assembly=ShannonEntropy"
              xmlns:fonts="clr-namespace:ShannonEntropy.Fonts;assembly=ShannonEntropy"
              xmlns:text="clr-namespace:System.Text;assembly=netstandard"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LBackground},Dark={StaticResource DBackground}}"
              x:Class="ShannonEntropy.Views.TextSamples" x:DataType="viewModels:TextSamplesViewModel">
     <ContentPage.BindingContext>
         <viewModels:TextSamplesViewModel x:Name="Model" />
@@ -18,12 +19,12 @@
                 <DataTemplate x:DataType="text:StringBuilder">
                     <pancakeView:PancakeView>
                         <StackLayout Margin="5" Padding="3" Spacing="5" Orientation="Horizontal">
-                            <Frame BorderColor="Black"  Padding="5" VerticalOptions="FillAndExpand" HeightRequest="150" 
+                            <Frame BorderColor="Black" BackgroundColor="{AppThemeBinding Light={StaticResource LSecondaryBackground},Dark={StaticResource DSecondaryBackground}}"  Padding="5" VerticalOptions="FillAndExpand" HeightRequest="150" 
                                    HorizontalOptions="StartAndExpand">
-                                <Label TextColor="Black" VerticalOptions="Start"
-                                       Text="{Binding .}" BackgroundColor="White"/>
+                                <Label TextColor="{AppThemeBinding Light=Black,Dark=White}" VerticalOptions="Start" 
+                                       Text="{Binding .}" BackgroundColor="Transparent"/>
                             </Frame>
-                            <Button WidthRequest="40" Padding="0" HeightRequest="150" TextColor="White" FontAttributes="Bold" FontSize="16" 
+                            <Button WidthRequest="40" Padding="0" HeightRequest="150" TextColor="{AppThemeBinding Light=Black,Dark=White}" FontAttributes="Bold" FontSize="16" 
                                     Text="{x:Static fonts:FontelloIcons.Letter}" FontFamily="{x:Static fonts:FontelloIcons.Font}"
                                     Command="{Binding CalculateCommand,Source={x:Reference Model}}" 
                                     CommandParameter="{Binding .}"/>

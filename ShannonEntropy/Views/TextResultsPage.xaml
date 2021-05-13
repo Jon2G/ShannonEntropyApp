@@ -9,28 +9,30 @@
         <viewModels:TextResultsPageViewModel x:Name="Model"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Spacing="0" BackgroundColor="{StaticResource PrimaryDark}">
-            <Label Text="{Binding TotalEntropy,StringFormat='Entropia total: {0:N2}'}" Margin="5,0" FontSize="20" TextColor="White" FontAttributes="Bold"/>
+        <StackLayout Spacing="0" BackgroundColor="{AppThemeBinding Light={StaticResource LPrimaryDark},Dark={StaticResource DPrimaryDark}}">
+            <Label Text="{Binding TotalEntropy,StringFormat='Entropia total: {0:N2}'}" Margin="5,0" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" FontAttributes="Bold"/>
             <Grid Padding="10"  ColumnDefinitions="*,*,*">
-                <Label Grid.Column="0" Text="Character" HorizontalTextAlignment="Center" FontSize="18" TextColor="White" FontAttributes="Bold"/>
-                <Label Grid.Column="1" Text="Count" HorizontalTextAlignment="End" FontSize="18" TextColor="White" FontAttributes="Bold"/>
-                <Label Grid.Column="2" Text="Frecuency" HorizontalTextAlignment="End" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Text="Character" HorizontalTextAlignment="Center" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" FontAttributes="Bold"/>
+                <Label Grid.Column="1" Text="Count" HorizontalTextAlignment="End" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" FontAttributes="Bold"/>
+                <Label Grid.Column="2" Text="Frecuency" HorizontalTextAlignment="End" FontSize="18" TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" FontAttributes="Bold"/>
             </Grid>
-            <CollectionView BackgroundColor="WhiteSmoke" ItemsSource="{Binding Symbols}" VerticalOptions="FillAndExpand">
+            <CollectionView BackgroundColor="{AppThemeBinding Light={StaticResource LSecondaryBackground},Dark={StaticResource DSecondaryBackground}}" ItemsSource="{Binding Symbols}" VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Symbol" >
                         <ContentView>
-                            <Grid ColumnDefinitions="*,*,*">
-                                <Label Grid.Column="0" Text="{Binding Character}"
-                                       HorizontalTextAlignment="Center" TextColor="Black"
-                                       FontSize="18"/>
-                                <Label Grid.Column="1" Text="{Binding Count,StringFormat='{0:D1}'}"
-                                       HorizontalTextAlignment="End" TextColor="Black"
-                                       FontSize="18"/>
-                                <Label Grid.Column="2" Text="{Binding Frecuency,StringFormat='{0:P2}'}"
-                                       HorizontalTextAlignment="End" TextColor="Black"
-                                       FontSize="18"/>
-                            </Grid>
+                            <Frame Padding="0" Margin="0,3" BackgroundColor="{AppThemeBinding Light={StaticResource LSecondaryBackground},Dark={StaticResource DSecondaryBackground}}">
+                                <Grid ColumnDefinitions="*,*,*">
+                                    <Label Grid.Column="0" Text="{Binding Character}"
+                                           HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Light=Black,Dark=White}"
+                                           FontSize="18"/>
+                                    <Label Grid.Column="1" Text="{Binding Count,StringFormat='{0:D1}'}"
+                                           HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light=Black,Dark=White}"
+                                           FontSize="18"/>
+                                    <Label Grid.Column="2" Text="{Binding Frecuency,StringFormat='{0:P2}'}"
+                                           HorizontalTextAlignment="End" TextColor="{AppThemeBinding Light=Black,Dark=White}"
+                                           FontSize="18"/>
+                                </Grid>
+                            </Frame>
                         </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

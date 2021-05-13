@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Kit;
 using Kit.Model;
-using P42.Utils;
 using ShannonEntropy.EntropyLibrary;
 using ShannonEntropy.Models;
 using Xamarin.Forms.Internals;

@@ -8,7 +8,7 @@
           xmlns:converters="clr-namespace:Kit.Forms.Converters;assembly=Kit.Forms"
           xmlns:pages="clr-namespace:Kit.Forms.Pages;assembly=Kit.Forms"
           xmlns:fonts="clr-namespace:ShannonEntropy.Fonts;assembly=ShannonEntropy"
-          x:Class="ShannonEntropy.Views.FromImage"
+          x:Class="ShannonEntropy.Views.FromImage" BackgroundColor="{AppThemeBinding Light={StaticResource LBackground},Dark={StaticResource DBackground}}"
           Title="{x:Static resource:AppResources.FromPhoto}">
     <ContentPage.BindingContext>
         <viewModels:FromPhotoPageViewModel x:Name="Model"/>
@@ -22,28 +22,35 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="10,0" Spacing="20">
                     <ImageButton Command="{Binding PickFileCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Photo}"/>
+                            <FontImageSource Color="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}" 
+                                             FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Photo}"/>
                         </ImageButton.Source>
                     </ImageButton>
                     <ImageButton Command="{Binding TakePhotoCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Camera}"/>
+                            <FontImageSource Color="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}"
+                                             FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.Camera}"/>
                         </ImageButton.Source>
                     </ImageButton>
                     <ImageButton Command="{Binding CleanCommand}" BackgroundColor="Transparent">
                         <ImageButton.Source>
-                            <FontImageSource Color="{StaticResource Accent}" FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
+                            <FontImageSource 
+                                Color="{AppThemeBinding Light={StaticResource LAccent}, Dark={StaticResource DAccent}}" 
+                                FontFamily="{x:Static fonts:FontelloIcons.Font}" Glyph="{x:Static  fonts:FontelloIcons.TrashBin}"/>
                         </ImageButton.Source>
                     </ImageButton>
                 </StackLayout>
-                <Button BackgroundColor="{StaticResource  Primary}" WidthRequest="100" HorizontalOptions="EndAndExpand" Padding="3,0" Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}"/>
+                <Button BackgroundColor="{AppThemeBinding Light={StaticResource LAccent},Dark={StaticResource DAccent}}" WidthRequest="100" HorizontalOptions="EndAndExpand" Padding="3,0"
+                        Text="{x:Static resource:AppResources.Samples}" Command="{Binding SamplesCommand}"/>
             </StackLayout>
             <forms:CachedImage DownsampleToViewSize="True"  x:Name="Image"
                                VerticalOptions="FillAndExpand" 
                                Source="{Binding Image}">
             </forms:CachedImage>
-            <Button Text="{x:Static resource:AppResources.CalculateEntropy}" IsEnabled="{Binding IsLoading,Converter={StaticResource NegateConverter},Source={x:Reference Image}}"
-                    Command="{Binding CalculateCommand}" CommandParameter="{Binding Source={x:Reference Image}}"/>
+            <Button Text="{x:Static resource:AppResources.CalculateEntropy}"
+                    IsEnabled="{Binding IsLoading,Converter={StaticResource NegateConverter},Source={x:Reference Image}}"
+                    Command="{Binding CalculateCommand}"
+                    CommandParameter="{Binding Source={x:Reference Image}}"/>
         </StackLayout>
     </ContentPage.Content>
 </pages:BasePage>

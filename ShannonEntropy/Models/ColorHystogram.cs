@@ -39,7 +39,7 @@ namespace ShannonEntropy.Models
             Bitmap img = new Bitmap(histHeight, 128);
             using (Graphics g = Graphics.FromImage(img))
             {
-                g.Clear(Pixels.White);
+                g.Clear(Pixels.Transparent);
                 float fmax = (float)MaxValue;
                 for (int i = 0; i < Hystogram.Length; i++)
                 {

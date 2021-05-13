@@ -7,17 +7,16 @@
              x:Class="ShannonEntropy.AppShell">
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource PrimaryDark}" />
-                <Setter Property="Shell.ForegroundColor" Value="{StaticResource TextColor}" />
-                <Setter Property="Shell.TitleColor" Value="{StaticResource TextColor}" />
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource LPrimaryDark},Dark={StaticResource DPrimaryDark}}" />
+                <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" />
+                <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource PrimaryDark}"/>
-                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource TextColor}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Light={StaticResource LPrimaryDark},Dark={StaticResource DPrimaryDark}}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource TextColor}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}"/>
                 <Setter Property="Shell.FlyoutBehavior" Value="Disabled"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />

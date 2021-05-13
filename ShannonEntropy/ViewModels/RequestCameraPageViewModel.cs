@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
-using Forms9Patch.Elements.Popups.Core;
 using Kit.Forms.Extensions;
 using Kit.Forms.Pages;
 using ShannonEntropy.Resources;
