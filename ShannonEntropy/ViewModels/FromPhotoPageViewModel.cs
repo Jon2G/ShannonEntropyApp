@@ -69,14 +69,14 @@ namespace ShannonEntropy.ViewModels
             {
                 RequestCameraPage request = new RequestCameraPage();
                 await request.ShowDialog();
-                if (!permiso.ShouldShowRationale())
+                if (await permiso.CheckStatusAsync()!=PermissionStatus.Granted)
                 {
                     await Task.Delay(500);
                     Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera,
                         AppResources.Alert);
                     return;
                 }
-                return;
+                await Task.Delay(500);
             }
             var photo = await MediaPicker.CapturePhotoAsync();
             if (photo is not null)
@@ -96,14 +96,14 @@ namespace ShannonEntropy.ViewModels
                 {
                     RequestCameraPage request = new RequestCameraPage();
                     await request.ShowDialog();
-                    if (!permiso.ShouldShowRationale())
+                    if (await permiso.CheckStatusAsync() != PermissionStatus.Granted)
                     {
                         await Task.Delay(500);
                         Acr.UserDialogs.UserDialogs.Instance.Alert(AppResources.HasDeniedCamera,
                             AppResources.Alert);
                         return;
                     }
-                    return;
+                    await Task.Delay(500);
                 }
                 var pfile = await MediaPicker.PickPhotoAsync();
                 if (pfile is not null)

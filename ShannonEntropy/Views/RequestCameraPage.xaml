@@ -43,7 +43,10 @@
                         <Label TextColor="Black" Text="{x:Static resources:AppResources.GrantPhotos}"/>
                     </StackLayout>
                     <Label TextColor="Black" Text="{x:Static resources:AppResources.Privacy}"/>
-                    <Button Text="Continuar" Command="{Binding ContinueCommand}"/>
+                    <Button 
+                         BackgroundColor="{AppThemeBinding Light={StaticResource LPrimaryDark},Dark={StaticResource DPrimaryDark}}"
+                         TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}"
+                        Text="Continuar" Command="{Binding ContinueCommand}"/>
                     <Label TextColor="Black" VerticalOptions="End" Text="{x:Static resources:AppResources.YouCanDisableThis}"/>
                 </StackLayout>
             </StackLayout>
