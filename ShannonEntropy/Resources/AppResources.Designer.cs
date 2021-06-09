@@ -152,6 +152,15 @@ namespace ShannonEntropy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Continuar.
+        /// </summary>
+        internal static string Continue {
+            get {
+                return ResourceManager.GetString("Continue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desarrollada por: Jonathan Eduardo G.G.
         /// </summary>
         internal static string DevelopedBy {

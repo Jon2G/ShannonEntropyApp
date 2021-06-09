@@ -140,7 +140,7 @@ namespace ShannonEntropy.EntropyLibrary
             catch (Exception ex)
             {
                 Log.Logger.Error(ex, "BarcodeDecoding.GetImage");
-                await Tools.Instance.CustomMessageBox.Show(ex.Message);
+                await Tools.Instance.Dialogs.CustomMessageBox.Show(ex.Message);
             }
             return hystogram;
         }

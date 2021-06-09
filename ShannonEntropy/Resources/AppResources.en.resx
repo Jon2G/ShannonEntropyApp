@@ -148,6 +148,9 @@ Continue?</value>
   <data name="CleanTextAsk" xml:space="preserve">
     <value>¿Clear text?</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
   <data name="DevelopedBy" xml:space="preserve">
     <value>Developed by: Jonathan Eduardo G.G</value>
   </data>

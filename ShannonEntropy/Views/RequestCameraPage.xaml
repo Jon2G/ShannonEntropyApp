@@ -46,7 +46,7 @@
                     <Button 
                          BackgroundColor="{AppThemeBinding Light={StaticResource LPrimaryDark},Dark={StaticResource DPrimaryDark}}"
                          TextColor="{AppThemeBinding Light={StaticResource LTextColor},Dark={StaticResource DTextColor}}"
-                        Text="Continuar" Command="{Binding ContinueCommand}"/>
+                        Text="{x:Static resources:AppResources.Continue}" Command="{Binding ContinueCommand}"/>
                     <Label TextColor="Black" VerticalOptions="End" Text="{x:Static resources:AppResources.YouCanDisableThis}"/>
                 </StackLayout>
             </StackLayout>

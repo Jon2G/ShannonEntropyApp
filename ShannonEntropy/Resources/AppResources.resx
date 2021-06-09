@@ -148,6 +148,9 @@
   <data name="CleanTextAsk" xml:space="preserve">
     <value>¿Limpiar texto?</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continuar</value>
+  </data>
   <data name="DevelopedBy" xml:space="preserve">
     <value>Desarrollada por: Jonathan Eduardo G.G</value>
   </data>
